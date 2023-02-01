@@ -1,0 +1,647 @@
+.gitkeep[INFO ] 2023-02-01 15:38:48.189 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 14388 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:38:48.190 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:38:48.493 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:38:48.496 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:38:48.574 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:38:48.575 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:38:48.575 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:38:48.608 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:38:49.415 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@51971fe3, net=de.flapdoodle.embed.mongo.config.Net@176e3dc0, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@6bbe0b65, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@2f73e903, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@46f29309}
+[INFO ] 2023-02-01 15:38:49.416 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:38:49.419 [cluster-rtt-ClusterId{value='63dacdd9d8dd137036076636', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:8, serverValue:53}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:38:49.419 [cluster-ClusterId{value='63dacdd9d8dd137036076636', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:7, serverValue:52}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:38:49.419 [cluster-ClusterId{value='63dacdd9d8dd137036076636', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=952900}
+[INFO ] 2023-02-01 15:38:49.424 [restartedMain] connection - Opened connection [connectionId{localValue:9, serverValue:54}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:38:49.513 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:38:49.609 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:38:49.612 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:38:49.612 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:38:49.620 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:38:49.662 [restartedMain] Application - Started Application in 1.518 seconds (JVM running for 1364.254)
+[INFO ] 2023-02-01 15:38:51.058 [Thread-15] connection - Closed connection [connectionId{localValue:9, serverValue:54}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:38:51.322 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 14388 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:38:51.323 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:38:51.628 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:38:51.630 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:38:51.699 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:38:51.699 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:38:51.699 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:38:51.732 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:38:52.479 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@684dcfd6, net=de.flapdoodle.embed.mongo.config.Net@1df6c75b, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@3ea04845, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@4fb4e96e, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@4981bc31}
+[INFO ] 2023-02-01 15:38:52.480 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:38:52.483 [cluster-ClusterId{value='63dacddcd8dd137036076637', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:10, serverValue:56}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:38:52.483 [cluster-rtt-ClusterId{value='63dacddcd8dd137036076637', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:11, serverValue:55}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:38:52.483 [cluster-ClusterId{value='63dacddcd8dd137036076637', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1099400}
+[INFO ] 2023-02-01 15:38:52.488 [restartedMain] connection - Opened connection [connectionId{localValue:12, serverValue:57}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:38:52.585 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:38:52.662 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:38:52.664 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:38:52.665 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:38:52.672 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:38:52.713 [restartedMain] Application - Started Application in 1.432 seconds (JVM running for 1367.305)
+[INFO ] 2023-02-01 15:38:54.088 [Thread-21] connection - Closed connection [connectionId{localValue:12, serverValue:57}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:38:54.325 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 14388 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:38:54.326 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:38:54.587 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:38:54.589 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:38:54.645 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:38:54.646 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:38:54.646 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:38:54.676 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:38:55.395 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@1605dc95, net=de.flapdoodle.embed.mongo.config.Net@7c08cd82, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@502e6bb0, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@37f041c2, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@fa9d2dd}
+[INFO ] 2023-02-01 15:38:55.396 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:38:55.398 [cluster-ClusterId{value='63dacddfd8dd137036076638', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:13, serverValue:58}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:38:55.398 [cluster-rtt-ClusterId{value='63dacddfd8dd137036076638', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:14, serverValue:59}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:38:55.399 [cluster-ClusterId{value='63dacddfd8dd137036076638', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=955300}
+[INFO ] 2023-02-01 15:38:55.401 [restartedMain] connection - Opened connection [connectionId{localValue:15, serverValue:60}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:38:55.469 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:38:55.546 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:38:55.549 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:38:55.550 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:38:55.557 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:38:55.589 [restartedMain] Application - Started Application in 1.303 seconds (JVM running for 1370.18)
+[INFO ] 2023-02-01 15:38:56.988 [Thread-27] connection - Closed connection [connectionId{localValue:15, serverValue:60}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:38:57.238 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 14388 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:38:57.239 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:38:57.462 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:38:57.464 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:38:57.556 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:38:57.557 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:38:57.557 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:38:57.591 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:38:58.327 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@d91ab63, net=de.flapdoodle.embed.mongo.config.Net@1b003ae0, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@30f6bb96, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@7eebfd2b, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@7ea19b26}
+[INFO ] 2023-02-01 15:38:58.328 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:38:58.331 [cluster-rtt-ClusterId{value='63dacde2d8dd137036076639', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:17, serverValue:61}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:38:58.331 [cluster-ClusterId{value='63dacde2d8dd137036076639', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:16, serverValue:62}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:38:58.331 [cluster-ClusterId{value='63dacde2d8dd137036076639', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=750200}
+[INFO ] 2023-02-01 15:38:58.335 [restartedMain] connection - Opened connection [connectionId{localValue:18, serverValue:63}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:38:58.394 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:38:58.457 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:38:58.459 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:38:58.459 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:38:58.464 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:38:58.497 [restartedMain] Application - Started Application in 1.29 seconds (JVM running for 1373.088)
+[INFO ] 2023-02-01 15:38:59.903 [Thread-33] connection - Closed connection [connectionId{localValue:18, serverValue:63}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:39:00.145 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 14388 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:39:00.146 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:39:00.370 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:39:00.372 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:39:00.422 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:39:00.423 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:39:00.423 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:39:00.457 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:39:16.184 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 6168 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:39:16.192 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:39:17.209 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:39:17.222 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:39:17.845 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:39:17.846 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:39:17.846 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:39:17.962 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:39:22.459 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@ecb5135, net=de.flapdoodle.embed.mongo.config.Net@14bec5bd, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@79ac06ff, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@2b58f452, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@7fce4af5}
+[INFO ] 2023-02-01 15:39:22.535 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:39:22.616 [cluster-ClusterId{value='63dacdfa156b9569e29df6b4', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:2, serverValue:65}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:39:22.616 [cluster-rtt-ClusterId{value='63dacdfa156b9569e29df6b4', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:1, serverValue:64}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:39:22.617 [cluster-ClusterId{value='63dacdfa156b9569e29df6b4', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=30539200}
+[INFO ] 2023-02-01 15:39:22.731 [restartedMain] connection - Opened connection [connectionId{localValue:3, serverValue:66}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:39:23.194 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:39:23.547 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:39:23.574 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:39:23.593 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:39:23.627 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:39:23.805 [restartedMain] Application - Started Application in 7.982 seconds (JVM running for 8.857)
+[INFO ] 2023-02-01 15:40:05.749 [Thread-6] connection - Closed connection [connectionId{localValue:3, serverValue:66}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:40:06.644 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 6168 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:40:06.645 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:40:06.994 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:40:06.996 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:40:07.094 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:07.095 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:40:07.095 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:40:07.129 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:40:11.225 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@165c9a3a, net=de.flapdoodle.embed.mongo.config.Net@1340d311, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@81f5f58, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@146ce746, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@669332bb}
+[INFO ] 2023-02-01 15:40:11.227 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:40:11.230 [cluster-ClusterId{value='63dace2b156b9569e29df6b5', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:4, serverValue:68}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:11.230 [cluster-rtt-ClusterId{value='63dace2b156b9569e29df6b5', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:5, serverValue:67}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:11.231 [cluster-ClusterId{value='63dace2b156b9569e29df6b5', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1348400}
+[INFO ] 2023-02-01 15:40:11.235 [restartedMain] connection - Opened connection [connectionId{localValue:6, serverValue:69}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:11.379 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:40:11.492 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:11.494 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:40:11.495 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:40:11.503 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:40:11.557 [restartedMain] Application - Started Application in 4.975 seconds (JVM running for 56.608)
+[INFO ] 2023-02-01 15:40:24.143 [Thread-9] connection - Closed connection [connectionId{localValue:6, serverValue:69}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:40:24.758 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 6168 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:40:24.759 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:40:25.044 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:40:25.046 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:40:25.124 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:25.125 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:40:25.125 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:40:25.156 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:40:29.033 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@762a2f1e, net=de.flapdoodle.embed.mongo.config.Net@61adc852, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@72445c86, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@297825f2, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@e8dbd1c}
+[INFO ] 2023-02-01 15:40:29.035 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:40:29.038 [cluster-ClusterId{value='63dace3d156b9569e29df6b6', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:7, serverValue:71}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:29.038 [cluster-rtt-ClusterId{value='63dace3d156b9569e29df6b6', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:8, serverValue:70}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:29.038 [cluster-ClusterId{value='63dace3d156b9569e29df6b6', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1453600}
+[INFO ] 2023-02-01 15:40:29.045 [restartedMain] connection - Opened connection [connectionId{localValue:9, serverValue:72}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:29.170 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:40:29.270 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:29.273 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:40:29.274 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:40:29.279 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:40:29.319 [restartedMain] Application - Started Application in 4.616 seconds (JVM running for 74.371)
+[INFO ] 2023-02-01 15:40:36.827 [Thread-15] connection - Closed connection [connectionId{localValue:9, serverValue:72}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:40:37.421 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 6168 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:40:37.425 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:40:37.984 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:40:37.989 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:40:38.192 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:38.192 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:40:38.193 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:40:38.243 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:40:41.439 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 25944 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:40:41.449 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:40:42.942 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:40:42.961 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:40:42.989 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@644cf270, net=de.flapdoodle.embed.mongo.config.Net@53ad36bc, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@6fbef50b, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@61f1bff8, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@62ad0ec4}
+[INFO ] 2023-02-01 15:40:42.992 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:40:43.008 [restartedMain] cluster - Cluster description not yet available. Waiting for 30000 ms before timing out
+[INFO ] 2023-02-01 15:40:43.041 [cluster-rtt-ClusterId{value='63dace4a156b9569e29df6b7', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:11, serverValue:73}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:43.043 [cluster-ClusterId{value='63dace4a156b9569e29df6b7', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:10, serverValue:74}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:43.043 [cluster-ClusterId{value='63dace4a156b9569e29df6b7', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2194200}
+[INFO ] 2023-02-01 15:40:43.047 [restartedMain] connection - Opened connection [connectionId{localValue:12, serverValue:75}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:43.252 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:40:43.911 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:43.923 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:40:43.930 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:40:44.096 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:40:44.203 [restartedMain] Application - Started Application in 6.845 seconds (JVM running for 89.255)
+[INFO ] 2023-02-01 15:40:44.550 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:44.551 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:40:44.552 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:40:44.775 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:40:45.519 [Thread-21] connection - Closed connection [connectionId{localValue:12, serverValue:75}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:40:47.644 [Thread-21] ProcessControl - stopOrDestroyProcess: process has not exited 
+[INFO ] 2023-02-01 15:40:48.175 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 6168 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:40:48.176 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:40:48.427 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:40:48.429 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:40:48.496 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:48.496 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:40:48.496 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:40:48.532 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:40:49.352 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@7f13f579, net=de.flapdoodle.embed.mongo.config.Net@4604af85, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@2966688e, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@76a1e07c, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@16f97bec}
+[INFO ] 2023-02-01 15:40:49.423 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:40:49.514 [cluster-ClusterId{value='63dace512c75277865a42e91', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:2, serverValue:77}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:49.514 [cluster-rtt-ClusterId{value='63dace512c75277865a42e91', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:1, serverValue:76}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:49.515 [cluster-ClusterId{value='63dace512c75277865a42e91', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=33950300}
+[INFO ] 2023-02-01 15:40:49.648 [restartedMain] connection - Opened connection [connectionId{localValue:3, serverValue:78}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:49.846 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@65bd84a8, net=de.flapdoodle.embed.mongo.config.Net@249b1911, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@7d623137, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@2064778c, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@29752fec}
+[INFO ] 2023-02-01 15:40:49.848 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:40:49.852 [cluster-rtt-ClusterId{value='63dace51156b9569e29df6b8', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:14, serverValue:79}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:49.853 [cluster-ClusterId{value='63dace51156b9569e29df6b8', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:13, serverValue:80}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:49.853 [cluster-ClusterId{value='63dace51156b9569e29df6b8', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=2302400}
+[INFO ] 2023-02-01 15:40:49.859 [restartedMain] connection - Opened connection [connectionId{localValue:15, serverValue:81}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:50.044 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:40:50.311 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:50.314 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:40:50.424 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:40:50.433 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:40:50.448 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:40:50.541 [restartedMain] Application - Started Application in 2.407 seconds (JVM running for 95.593)
+[INFO ] 2023-02-01 15:40:51.151 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:51.168 [restartedMain] connection - Closed connection [connectionId{localValue:3, serverValue:78}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:40:51.396 [restartedMain] Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:51.397 [restartedMain] StandardService - Stopping service [Tomcat]
+[INFO ] 2023-02-01 15:40:51.415 [restartedMain] Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:51.417 [restartedMain] Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:51.798 [Thread-27] connection - Closed connection [connectionId{localValue:15, serverValue:81}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:40:52.026 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 6168 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:40:52.027 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:40:52.298 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:40:52.301 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:40:52.407 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:52.408 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:40:52.408 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:40:52.447 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:40:53.421 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@5b0f9f85, net=de.flapdoodle.embed.mongo.config.Net@5ca09f1a, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@218d4395, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@6237cd6d, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@45638519}
+[INFO ] 2023-02-01 15:40:53.422 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:40:53.426 [cluster-ClusterId{value='63dace55156b9569e29df6b9', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:16, serverValue:82}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:53.426 [cluster-rtt-ClusterId{value='63dace55156b9569e29df6b9', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:17, serverValue:83}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:53.426 [cluster-ClusterId{value='63dace55156b9569e29df6b9', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1351300}
+[INFO ] 2023-02-01 15:40:53.430 [restartedMain] connection - Opened connection [connectionId{localValue:18, serverValue:84}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:40:53.515 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:40:53.581 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:40:53.583 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:40:53.584 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:40:53.588 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:40:53.613 [restartedMain] Application - Started Application in 1.625 seconds (JVM running for 98.665)
+[INFO ] 2023-02-01 15:41:09.556 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 25672 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:41:09.563 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:41:10.572 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:41:10.584 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:41:11.201 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:41:11.201 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:41:11.202 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:41:11.316 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:41:12.192 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@45316a1b, net=de.flapdoodle.embed.mongo.config.Net@1a41964a, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@13b55365, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@27d90a89, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@6976dddb}
+[INFO ] 2023-02-01 15:41:12.255 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:41:12.341 [cluster-rtt-ClusterId{value='63dace68abbb852f4d9a366d', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:1, serverValue:86}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:41:12.341 [cluster-ClusterId{value='63dace68abbb852f4d9a366d', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:2, serverValue:85}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:41:12.342 [cluster-ClusterId{value='63dace68abbb852f4d9a366d', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=40961300}
+[INFO ] 2023-02-01 15:41:12.476 [restartedMain] connection - Opened connection [connectionId{localValue:3, serverValue:87}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:41:12.945 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:41:13.314 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:41:13.336 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:41:13.352 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:41:13.381 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:41:13.553 [restartedMain] Application - Started Application in 4.358 seconds (JVM running for 5.254)
+[INFO ] 2023-02-01 15:41:26.983 [Thread-6] connection - Closed connection [connectionId{localValue:3, serverValue:87}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:41:27.259 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 25672 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:41:27.260 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:41:27.633 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:41:27.635 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:41:27.733 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:41:27.733 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:41:27.733 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:41:27.766 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:41:28.568 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@4a8dddc4, net=de.flapdoodle.embed.mongo.config.Net@61044097, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@519789a6, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@11b63104, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@3571bd0b}
+[INFO ] 2023-02-01 15:41:28.570 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:41:28.574 [cluster-rtt-ClusterId{value='63dace78abbb852f4d9a366e', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:5, serverValue:88}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:41:28.574 [cluster-ClusterId{value='63dace78abbb852f4d9a366e', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:4, serverValue:89}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:41:28.575 [cluster-ClusterId{value='63dace78abbb852f4d9a366e', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1796200}
+[INFO ] 2023-02-01 15:41:28.581 [restartedMain] connection - Opened connection [connectionId{localValue:6, serverValue:90}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:41:28.770 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:41:28.878 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:41:28.880 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:41:28.881 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:41:28.887 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:41:28.933 [restartedMain] Application - Started Application in 1.757 seconds (JVM running for 20.635)
+[INFO ] 2023-02-01 15:41:41.559 [Thread-9] connection - Closed connection [connectionId{localValue:6, serverValue:90}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:41:41.804 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 25672 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:41:41.805 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:41:42.109 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:41:42.111 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:41:42.187 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:41:42.188 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:41:42.188 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:41:42.225 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:41:43.030 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@5f8337ea, net=de.flapdoodle.embed.mongo.config.Net@29776bb7, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@6e2935e8, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@e78b2b9, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@4882e8fb}
+[INFO ] 2023-02-01 15:41:43.031 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:41:43.035 [cluster-ClusterId{value='63dace87abbb852f4d9a366f', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:8, serverValue:92}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:41:43.035 [cluster-rtt-ClusterId{value='63dace87abbb852f4d9a366f', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:7, serverValue:91}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:41:43.035 [cluster-ClusterId{value='63dace87abbb852f4d9a366f', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1362900}
+[INFO ] 2023-02-01 15:41:43.040 [restartedMain] connection - Opened connection [connectionId{localValue:9, serverValue:93}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:41:43.173 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:41:43.274 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:41:43.277 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:41:43.278 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:41:43.287 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:41:43.338 [restartedMain] Application - Started Application in 1.579 seconds (JVM running for 35.04)
+[INFO ] 2023-02-01 15:41:55.904 [Thread-15] connection - Closed connection [connectionId{localValue:9, serverValue:93}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:41:56.145 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 25672 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:41:56.146 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:41:56.425 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:41:56.428 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:41:56.500 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:41:56.501 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:41:56.501 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:41:56.535 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:41:57.305 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@ef18aaf, net=de.flapdoodle.embed.mongo.config.Net@26a1d7c, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@8217273, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@5c5772a8, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@5e713f7f}
+[INFO ] 2023-02-01 15:41:57.307 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:41:57.310 [cluster-rtt-ClusterId{value='63dace95abbb852f4d9a3670', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:11, serverValue:95}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:41:57.310 [cluster-ClusterId{value='63dace95abbb852f4d9a3670', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:10, serverValue:94}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:41:57.310 [cluster-ClusterId{value='63dace95abbb852f4d9a3670', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1273200}
+[INFO ] 2023-02-01 15:41:57.312 [restartedMain] connection - Opened connection [connectionId{localValue:12, serverValue:96}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:41:57.397 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:41:57.476 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:41:57.478 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:41:57.479 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:41:57.484 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:41:57.521 [restartedMain] Application - Started Application in 1.426 seconds (JVM running for 49.222)
+[INFO ] 2023-02-01 15:42:10.133 [Thread-21] connection - Closed connection [connectionId{localValue:12, serverValue:96}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:42:10.379 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 25672 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:42:10.380 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:42:10.636 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:42:10.638 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:42:10.697 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:42:10.698 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:42:10.698 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:42:10.732 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:42:11.505 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@2ba60e34, net=de.flapdoodle.embed.mongo.config.Net@710c1625, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@e97f20, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@c9e9da8, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@17d2f5a1}
+[INFO ] 2023-02-01 15:42:11.506 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:42:11.509 [cluster-rtt-ClusterId{value='63dacea3abbb852f4d9a3671', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:13, serverValue:98}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:42:11.509 [cluster-ClusterId{value='63dacea3abbb852f4d9a3671', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:14, serverValue:97}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:42:11.509 [cluster-ClusterId{value='63dacea3abbb852f4d9a3671', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1243100}
+[INFO ] 2023-02-01 15:42:11.512 [restartedMain] connection - Opened connection [connectionId{localValue:15, serverValue:99}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:42:11.593 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:42:11.666 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:42:11.668 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:42:11.669 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:42:11.676 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:42:11.707 [restartedMain] Application - Started Application in 1.371 seconds (JVM running for 63.408)
+[INFO ] 2023-02-01 15:42:24.314 [Thread-27] connection - Closed connection [connectionId{localValue:15, serverValue:99}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:42:24.560 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 25672 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:42:24.560 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:42:24.790 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:42:24.792 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:42:24.851 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:42:24.851 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:42:24.852 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:42:24.883 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:42:25.637 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@6c78df51, net=de.flapdoodle.embed.mongo.config.Net@7972dd35, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@54410f60, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@55fb9cf7, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@7fd3434e}
+[INFO ] 2023-02-01 15:42:25.638 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:42:25.641 [cluster-ClusterId{value='63daceb1abbb852f4d9a3672', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:16, serverValue:100}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:42:25.641 [cluster-rtt-ClusterId{value='63daceb1abbb852f4d9a3672', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:17, serverValue:101}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:42:25.641 [cluster-ClusterId{value='63daceb1abbb852f4d9a3672', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1126000}
+[INFO ] 2023-02-01 15:42:25.642 [restartedMain] cluster - Cluster description not yet available. Waiting for 30000 ms before timing out
+[INFO ] 2023-02-01 15:42:25.643 [restartedMain] connection - Opened connection [connectionId{localValue:18, serverValue:102}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:42:25.718 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:42:25.779 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:42:25.782 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:42:25.783 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:42:25.786 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:42:25.813 [restartedMain] Application - Started Application in 1.288 seconds (JVM running for 77.515)
+[INFO ] 2023-02-01 15:42:38.433 [Thread-33] connection - Closed connection [connectionId{localValue:18, serverValue:102}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:42:38.664 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 25672 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:42:38.665 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:42:38.872 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:42:38.874 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:42:38.924 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:42:38.924 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:42:38.925 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:42:38.953 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:42:39.676 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@b696199, net=de.flapdoodle.embed.mongo.config.Net@799a6166, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@400b2424, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@38f1bd97, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@785466b9}
+[INFO ] 2023-02-01 15:42:39.677 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:42:39.680 [cluster-ClusterId{value='63dacebfabbb852f4d9a3673', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:19, serverValue:104}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:42:39.680 [cluster-rtt-ClusterId{value='63dacebfabbb852f4d9a3673', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:20, serverValue:103}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:42:39.680 [cluster-ClusterId{value='63dacebfabbb852f4d9a3673', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1138800}
+[INFO ] 2023-02-01 15:42:39.683 [restartedMain] connection - Opened connection [connectionId{localValue:21, serverValue:105}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:42:39.759 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:42:39.823 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:42:39.826 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:42:39.827 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:42:39.832 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:42:39.862 [restartedMain] Application - Started Application in 1.234 seconds (JVM running for 91.564)
+[INFO ] 2023-02-01 15:46:26.202 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 22296 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:46:26.211 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:46:27.280 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:46:27.293 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:46:27.987 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:46:27.988 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:46:27.988 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:46:28.097 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:46:29.160 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@28e4a33f, net=de.flapdoodle.embed.mongo.config.Net@4d985c17, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@5c90b490, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@283b027d, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@254bb11e}
+[INFO ] 2023-02-01 15:46:29.217 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:46:29.297 [cluster-rtt-ClusterId{value='63dacfa5fa5b7c0c0a5959c3', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:1, serverValue:106}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:46:29.297 [cluster-ClusterId{value='63dacfa5fa5b7c0c0a5959c3', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:2, serverValue:107}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:46:29.297 [cluster-ClusterId{value='63dacfa5fa5b7c0c0a5959c3', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=27624700}
+[INFO ] 2023-02-01 15:46:29.431 [restartedMain] connection - Opened connection [connectionId{localValue:3, serverValue:108}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:46:29.943 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:46:30.324 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:46:30.345 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:46:30.361 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:46:30.398 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:46:30.581 [restartedMain] Application - Started Application in 4.772 seconds (JVM running for 5.638)
+[INFO ] 2023-02-01 15:46:44.005 [Thread-6] connection - Closed connection [connectionId{localValue:3, serverValue:108}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:46:44.242 [restartedMain] Application - Starting Application using Java 14.0.1 on DESKTOP-COMP9CH with PID 22296 (E:\Dev\bets_r_us_backend\target\classes started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:46:44.243 [restartedMain] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:46:44.574 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:46:44.576 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:46:44.661 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:46:44.661 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:46:44.661 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:46:44.692 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:46:45.463 [restartedMain] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@43fe5df6, net=de.flapdoodle.embed.mongo.config.Net@4de0141d, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@72f25f2c, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@53ef3a00, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@624fcc66}
+[INFO ] 2023-02-01 15:46:45.464 [restartedMain] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:46:45.468 [cluster-rtt-ClusterId{value='63dacfb5fa5b7c0c0a5959c4', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:5, serverValue:109}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:46:45.468 [cluster-ClusterId{value='63dacfb5fa5b7c0c0a5959c4', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:4, serverValue:110}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:46:45.468 [cluster-ClusterId{value='63dacfb5fa5b7c0c0a5959c4', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=1525300}
+[INFO ] 2023-02-01 15:46:45.473 [restartedMain] connection - Opened connection [connectionId{localValue:6, serverValue:111}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:46:45.604 [restartedMain] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:46:45.709 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:46:45.711 [restartedMain] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:46:45.712 [restartedMain] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:46:45.720 [restartedMain] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:46:45.772 [restartedMain] Application - Started Application in 1.583 seconds (JVM running for 20.828)
+[INFO ] 2023-02-01 15:48:46.783 [main] ApplicationTests - Starting ApplicationTests using Java 14.0.1 on DESKTOP-COMP9CH with PID 8080 (started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:48:46.802 [main] ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:48:47.786 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:48:47.800 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:48:49.149 [main] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@38883a31, net=de.flapdoodle.embed.mongo.config.Net@27a6fef2, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@7fe8c7db, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@2dba05b1, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@541afb85}
+[INFO ] 2023-02-01 15:48:49.213 [main] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:48:49.297 [cluster-ClusterId{value='63dad031da2f983e3e2f2681', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:2, serverValue:112}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:48:49.297 [cluster-rtt-ClusterId{value='63dad031da2f983e3e2f2681', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:1, serverValue:113}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:48:49.298 [cluster-ClusterId{value='63dad031da2f983e3e2f2681', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=31245300}
+[INFO ] 2023-02-01 15:48:49.467 [main] connection - Opened connection [connectionId{localValue:3, serverValue:114}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:48:50.353 [main] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:48:51.214 [main] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:48:51.238 [main] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:48:51.279 [main] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:48:51.468 [main] ApplicationTests - Started ApplicationTests in 5.004 seconds (JVM running for 6.501)
+[INFO ] 2023-02-01 15:48:51.988 [SpringApplicationShutdownHook] connection - Closed connection [connectionId{localValue:3, serverValue:114}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:49:08.209 [main] Application - Starting Application v0.0.1-SNAPSHOT using Java 14.0.1 on DESKTOP-COMP9CH with PID 25772 (E:\Dev\bets_r_us_backend\spring-boot-0.0.1-SNAPSHOT.jar started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:49:08.217 [main] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:49:09.310 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:49:09.322 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:49:10.017 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:49:10.019 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:49:10.019 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:49:10.106 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:49:11.042 [main] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@89c10b7, net=de.flapdoodle.embed.mongo.config.Net@5dbe30be, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@4fe89c24, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@55795845, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@3d08f3f5}
+[INFO ] 2023-02-01 15:49:11.116 [main] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:49:11.205 [cluster-rtt-ClusterId{value='63dad047fbb7701eb691373b', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:2, serverValue:115}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:49:11.205 [cluster-ClusterId{value='63dad047fbb7701eb691373b', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:1, serverValue:116}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:49:11.206 [cluster-ClusterId{value='63dad047fbb7701eb691373b', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=41210800}
+[INFO ] 2023-02-01 15:49:11.370 [main] connection - Opened connection [connectionId{localValue:3, serverValue:117}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:49:11.862 [main] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:49:12.300 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:49:12.324 [main] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:49:12.346 [main] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:49:12.387 [main] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:49:12.560 [main] Application - Started Application in 4.803 seconds (JVM running for 6.049)
+[INFO ] 2023-02-01 15:56:07.967 [main] ApplicationTests - Starting ApplicationTests using Java 14.0.1 on DESKTOP-COMP9CH with PID 10016 (started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:56:07.992 [main] ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:56:08.983 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:56:08.998 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:56:10.504 [main] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@11b5f4e2, net=de.flapdoodle.embed.mongo.config.Net@6bcae9, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@5aa781f2, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@58feb6b0, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@66d25ba9}
+[INFO ] 2023-02-01 15:56:10.566 [main] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:56:10.641 [cluster-ClusterId{value='63dad1ea904b28667ae40804', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:1, serverValue:118}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:56:10.641 [cluster-rtt-ClusterId{value='63dad1ea904b28667ae40804', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:2, serverValue:119}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:56:10.642 [cluster-ClusterId{value='63dad1ea904b28667ae40804', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=29226600}
+[INFO ] 2023-02-01 15:56:10.797 [main] connection - Opened connection [connectionId{localValue:3, serverValue:120}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:56:11.612 [main] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:56:12.407 [main] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:56:12.434 [main] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:56:12.478 [main] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:56:12.677 [main] ApplicationTests - Started ApplicationTests in 4.999 seconds (JVM running for 6.416)
+[INFO ] 2023-02-01 15:56:13.190 [SpringApplicationShutdownHook] connection - Closed connection [connectionId{localValue:3, serverValue:120}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 15:56:35.549 [main] Application - Starting Application v0.0.1-SNAPSHOT using Java 14.0.1 on DESKTOP-COMP9CH with PID 31436 (E:\Dev\bets_r_us_backend\spring-boot-0.0.1-SNAPSHOT.jar started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 15:56:35.558 [main] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 15:56:36.511 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 15:56:36.524 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 15:56:37.133 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:56:37.134 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 15:56:37.135 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 15:56:37.206 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 15:56:38.138 [main] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@72bd06ca, net=de.flapdoodle.embed.mongo.config.Net@89c10b7, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@5dbe30be, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@4fe89c24, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@55795845}
+[INFO ] 2023-02-01 15:56:38.201 [main] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 15:56:38.286 [cluster-rtt-ClusterId{value='63dad206a87d9d5ece77d9de', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:2, serverValue:122}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:56:38.286 [cluster-ClusterId{value='63dad206a87d9d5ece77d9de', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:1, serverValue:121}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:56:38.287 [cluster-ClusterId{value='63dad206a87d9d5ece77d9de', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=33989000}
+[INFO ] 2023-02-01 15:56:38.430 [main] connection - Opened connection [connectionId{localValue:3, serverValue:123}] to bets-r-us:27017
+[INFO ] 2023-02-01 15:56:38.896 [main] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 15:56:39.291 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 15:56:39.313 [main] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 15:56:39.335 [main] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 15:56:39.373 [main] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 15:56:39.571 [main] Application - Started Application in 4.455 seconds (JVM running for 5.6)
+[INFO ] 2023-02-01 15:57:11.339 [http-nio-8080-exec-1] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2023-02-01 15:57:11.339 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-02-01 15:57:11.341 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2023-02-01 15:57:23.968 [http-nio-8080-exec-7] UserControllerImpl - Listing all user names from endpoint /user/listUsers
+[INFO ] 2023-02-01 15:57:53.293 [http-nio-8080-exec-8] UserControllerImpl - The user pperez01 has successfully been added to the database
+[INFO ] 2023-02-01 15:58:02.870 [http-nio-8080-exec-9] UserControllerImpl - Listing all user names from endpoint /user/listUsers
+[INFO ] 2023-02-01 16:03:45.586 [main] ApplicationTests - Starting ApplicationTests using Java 14.0.1 on DESKTOP-COMP9CH with PID 18276 (started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 16:03:45.606 [main] ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 16:03:46.715 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 16:03:46.728 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 16:03:48.175 [main] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@14c99bf6, net=de.flapdoodle.embed.mongo.config.Net@266e9dda, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@38883a31, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@27a6fef2, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@7fe8c7db}
+[INFO ] 2023-02-01 16:03:48.237 [main] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 16:03:48.308 [cluster-ClusterId{value='63dad3b4cca25b7bd88beee4', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:1, serverValue:125}] to bets-r-us:27017
+[INFO ] 2023-02-01 16:03:48.308 [cluster-rtt-ClusterId{value='63dad3b4cca25b7bd88beee4', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:2, serverValue:124}] to bets-r-us:27017
+[INFO ] 2023-02-01 16:03:48.317 [cluster-ClusterId{value='63dad3b4cca25b7bd88beee4', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=29241400}
+[INFO ] 2023-02-01 16:03:48.463 [main] connection - Opened connection [connectionId{localValue:3, serverValue:126}] to bets-r-us:27017
+[INFO ] 2023-02-01 16:03:49.264 [main] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 16:03:50.104 [main] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 16:03:50.124 [main] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 16:03:50.170 [main] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 16:03:50.385 [main] ApplicationTests - Started ApplicationTests in 5.109 seconds (JVM running for 6.533)
+[INFO ] 2023-02-01 16:03:50.907 [SpringApplicationShutdownHook] connection - Closed connection [connectionId{localValue:3, serverValue:126}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 16:05:01.685 [main] Application - Starting Application v0.0.1-SNAPSHOT using Java 14.0.1 on DESKTOP-COMP9CH with PID 30376 (E:\Dev\bets_r_us_backend\spring-boot-0.0.1-SNAPSHOT.jar started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 16:05:01.695 [main] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 16:05:02.647 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 16:05:02.661 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 16:05:03.253 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 16:05:03.254 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 16:05:03.255 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 16:05:03.320 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 16:05:04.251 [main] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@72bd06ca, net=de.flapdoodle.embed.mongo.config.Net@89c10b7, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@5dbe30be, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@4fe89c24, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@55795845}
+[INFO ] 2023-02-01 16:05:04.313 [main] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 16:05:04.402 [cluster-ClusterId{value='63dad400e2541108222776fd', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:2, serverValue:128}] to bets-r-us:27017
+[INFO ] 2023-02-01 16:05:04.402 [cluster-rtt-ClusterId{value='63dad400e2541108222776fd', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:1, serverValue:127}] to bets-r-us:27017
+[INFO ] 2023-02-01 16:05:04.405 [cluster-ClusterId{value='63dad400e2541108222776fd', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=36125500}
+[INFO ] 2023-02-01 16:05:04.583 [main] connection - Opened connection [connectionId{localValue:3, serverValue:129}] to bets-r-us:27017
+[INFO ] 2023-02-01 16:05:05.055 [main] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 16:05:05.442 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 16:05:05.465 [main] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 16:05:05.486 [main] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 16:05:05.520 [main] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 16:05:05.730 [main] Application - Started Application in 4.458 seconds (JVM running for 5.583)
+[INFO ] 2023-02-01 16:05:16.947 [http-nio-8080-exec-1] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2023-02-01 16:05:16.948 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-02-01 16:05:16.950 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2023-02-01 16:06:30.776 [http-nio-8080-exec-1] UserControllerImpl - Listing all user names from endpoint /user/listUsers
+[ERROR] 2023-02-01 16:06:56.981 [http-nio-8080-exec-4] UserControllerImpl - Cannot edit the user's name, the username provided does not exist in the system
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64) ~[?:?]
+	at jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70) ~[?:?]
+	at jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248) ~[?:?]
+	at java.util.Objects.checkIndex(Objects.java:373) ~[?:?]
+	at java.util.ArrayList.get(ArrayList.java:426) ~[?:?]
+	at com.application.springboot.Controllers.UserControllerImpl.editUserEmail(UserControllerImpl.java:124) [classes!/:0.0.1-SNAPSHOT]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:564) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) [spring-web-5.3.15.jar!/:5.3.15]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) [spring-web-5.3.15.jar!/:5.3.15]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) [spring-webmvc-5.3.15.jar!/:5.3.15]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) [spring-webmvc-5.3.15.jar!/:5.3.15]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) [spring-webmvc-5.3.15.jar!/:5.3.15]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) [spring-webmvc-5.3.15.jar!/:5.3.15]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) [spring-webmvc-5.3.15.jar!/:5.3.15]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) [spring-webmvc-5.3.15.jar!/:5.3.15]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.15.jar!/:5.3.15]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.3.15.jar!/:5.3.15]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.15.jar!/:5.3.15]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.56.jar!/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.15.jar!/:5.3.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.15.jar!/:5.3.15]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.15.jar!/:5.3.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.15.jar!/:5.3.15]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.15.jar!/:5.3.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) [spring-web-5.3.15.jar!/:5.3.15]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:382) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:895) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1732) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) [tomcat-embed-core-9.0.56.jar!/:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.56.jar!/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+[INFO ] 2023-02-01 16:08:05.299 [main] ApplicationTests - Starting ApplicationTests using Java 14.0.1 on DESKTOP-COMP9CH with PID 20668 (started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 16:08:05.324 [main] ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 16:08:06.347 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 16:08:06.362 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 16:08:09.787 [main] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@5aa781f2, net=de.flapdoodle.embed.mongo.config.Net@58feb6b0, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@66d25ba9, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@3830f918, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@5efe47fd}
+[INFO ] 2023-02-01 16:08:09.870 [main] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 16:08:09.961 [cluster-rtt-ClusterId{value='63dad4b931e9b82b2ddcd10a', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:1, serverValue:130}] to bets-r-us:27017
+[INFO ] 2023-02-01 16:08:09.961 [cluster-ClusterId{value='63dad4b931e9b82b2ddcd10a', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:2, serverValue:131}] to bets-r-us:27017
+[INFO ] 2023-02-01 16:08:09.963 [cluster-ClusterId{value='63dad4b931e9b82b2ddcd10a', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=37706300}
+[INFO ] 2023-02-01 16:08:10.199 [main] connection - Opened connection [connectionId{localValue:3, serverValue:132}] to bets-r-us:27017
+[INFO ] 2023-02-01 16:08:11.018 [main] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 16:08:11.860 [main] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 16:08:11.880 [main] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 16:08:11.921 [main] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 16:08:12.121 [main] ApplicationTests - Started ApplicationTests in 7.123 seconds (JVM running for 8.551)
+[INFO ] 2023-02-01 16:08:12.676 [SpringApplicationShutdownHook] connection - Closed connection [connectionId{localValue:3, serverValue:132}] to bets-r-us:27017 because the pool has been closed.
+[INFO ] 2023-02-01 16:09:14.464 [main] Application - Starting Application v0.0.1-SNAPSHOT using Java 14.0.1 on DESKTOP-COMP9CH with PID 24452 (E:\Dev\bets_r_us_backend\spring-boot-0.0.1-SNAPSHOT.jar started by pc in E:\Dev\bets_r_us_backend)
+[INFO ] 2023-02-01 16:09:14.473 [main] Application - No active profile set, falling back to default profiles: default
+[INFO ] 2023-02-01 16:09:15.452 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-02-01 16:09:15.466 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-02-01 16:09:16.153 [main] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 16:09:16.154 [main] StandardService - Starting service [Tomcat]
+[INFO ] 2023-02-01 16:09:16.155 [main] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.56]
+[INFO ] 2023-02-01 16:09:16.236 [main] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2023-02-01 16:09:17.211 [main] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@5cc126dc, net=de.flapdoodle.embed.mongo.config.Net@625e134e, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@72bd06ca, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@89c10b7, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@5dbe30be}
+[INFO ] 2023-02-01 16:09:17.281 [main] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-02-01 16:09:17.369 [cluster-rtt-ClusterId{value='63dad4fdf22d53766d4ef072', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:2, serverValue:133}] to bets-r-us:27017
+[INFO ] 2023-02-01 16:09:17.369 [cluster-ClusterId{value='63dad4fdf22d53766d4ef072', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:1, serverValue:134}] to bets-r-us:27017
+[INFO ] 2023-02-01 16:09:17.370 [cluster-ClusterId{value='63dad4fdf22d53766d4ef072', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=41822200}
+[INFO ] 2023-02-01 16:09:17.547 [main] connection - Opened connection [connectionId{localValue:3, serverValue:135}] to bets-r-us:27017
+[INFO ] 2023-02-01 16:09:18.088 [main] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-02-01 16:09:18.504 [main] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2023-02-01 16:09:18.525 [main] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-02-01 16:09:18.544 [main] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-02-01 16:09:18.587 [main] ApiListingReferenceScanner - Scanning for api listing references
+[INFO ] 2023-02-01 16:09:18.820 [main] Application - Started Application in 4.811 seconds (JVM running for 5.97)
+[INFO ] 2023-02-01 16:09:24.603 [http-nio-8080-exec-1] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2023-02-01 16:09:24.603 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2023-02-01 16:09:24.605 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2023-02-01 16:09:58.158 [http-nio-8080-exec-7] UserControllerImpl - The user deray has successfully been added to the database
+[ERROR] 2023-02-01 16:12:02.320 [http-nio-8080-exec-6] UserControllerImpl - Cannot edit user's address, the username provided does not exist in the system 
+[ERROR] 2023-02-01 16:12:14.136 [http-nio-8080-exec-7] UserControllerImpl - Cannot edit the user's name, the username provided does not exist in the system
+[ERROR] 2023-02-01 16:12:20.254 [http-nio-8080-exec-8] UserControllerImpl - Cannot edit the user's name, the username provided does not exist in the system
