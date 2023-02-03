@@ -4,7 +4,7 @@
         <Console name="LogToConsole" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
-        <File name="LogToFile" fileName="E:/Dev/bets_r_us_backend/src/main/resources/systemlog.log">
+        <File name="LogToFile" fileName="E:/Dev/bets-r-us/src/main/resources/systemlog.log">
             <PatternLayout>
                 <Pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</Pattern>
             </PatternLayout>

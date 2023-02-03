@@ -1,5 +1,6 @@
 package com.application.springboot.Controllers;
 
+import com.application.springboot.persistence.Bankroll;
 import com.application.springboot.persistence.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,11 @@ public class UserControllerImpl implements UserOperationInterface{
         newUser.setState(state);
         newUser.setZip_code(zip);
         
+        Bankroll newBankroll = new Bankroll();
+        newBankroll.setUserName(userName);
+        newBankroll.setBalance(0.00F);
+        mongoTemplate.save(newBankroll);
+        
         LOGGER.info("The user " + userName + " has successfully been added to the database");
         return mongoTemplate.save(newUser);
     }
@@ -86,7 +92,7 @@ public class UserControllerImpl implements UserOperationInterface{
         updatedUser = getUser(userName).get(0);
         }
         catch (IndexOutOfBoundsException ex){
-        LOGGER.error("Cannot edit user's address, the username provided does not exist in the system ");
+        LOGGER.error("Cannot edit user's address, the username provided (" + userName + ") does not exist in the system ");
         }
         return updatedUser;
     }
@@ -105,7 +111,7 @@ public class UserControllerImpl implements UserOperationInterface{
         updatedUser = getUser(userName).get(0);
         }
         catch (IndexOutOfBoundsException ex){
-        LOGGER.error("Cannot edit the user's name, the username provided does not exist in the system");
+        LOGGER.error("Cannot edit the user's name, the username provided (" + userName + ") does not exist in the system");
         }
         return updatedUser;
 
@@ -124,7 +130,7 @@ public class UserControllerImpl implements UserOperationInterface{
         updatedUser = getUser(userName).get(0);
         }
         catch (IndexOutOfBoundsException ex){
-        LOGGER.error("Cannot edit the user's email, the username provided does not exist in the system");
+        LOGGER.error("Cannot edit the user's email, the username provided (" + userName + ") does not exist in the system");
         }
         return updatedUser;        
     }
@@ -142,6 +148,8 @@ public class UserControllerImpl implements UserOperationInterface{
         return userNames; 
     }
 
+         
+    /* Do not expose the following endpoints to the end user */ 
     @ApiIgnore
     @GetMapping("/user/deleteAllUsers")
     public void deleteAllUsers() {
