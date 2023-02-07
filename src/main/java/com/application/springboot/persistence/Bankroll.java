@@ -12,8 +12,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document(collection = "bankrolls")
 public class Bankroll {
-   // DecimalFormat decimalFormat = new DecimalFormat("#.##");
-    
     @Id
     private String userName;
     @Indexed(unique = true)
@@ -33,7 +31,6 @@ public class Bankroll {
     }
 
     public void setBalance(Float balance) {
-     // balance = Float.valueOf(decimalFormat.format(balance));
         this.balance = balance;
     }
     

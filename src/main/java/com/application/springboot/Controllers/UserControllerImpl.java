@@ -24,10 +24,11 @@ import springfox.documentation.annotations.ApiIgnore;
  * @author "paul.perez"
  */
 @RestController
-public class UserControllerImpl implements UserOperationInterface{
+public class UserControllerImpl implements UserOperationInterface {
+
     private static final Logger LOGGER = LogManager.getLogger(UserControllerImpl.class);
     private MongoTemplate mongoTemplate;
-     
+
     @Autowired
     public void setMongoTemplate(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
@@ -36,8 +37,8 @@ public class UserControllerImpl implements UserOperationInterface{
     @Override
     @PostMapping("/user/addUser")
     @ResponseBody
-    public void addUser(@RequestParam String userName, String firstName, String lastName, String email, 
-                                                String streetAddress, String city, String state, String zip) {
+    public void addUser(@RequestParam String userName, String firstName, String lastName, String email,
+            String streetAddress, String city, String state, String zip) {
         User newUser = new User();
         newUser.setUserName(userName);
         newUser.setUniqueUserId(createUserId(userName));
@@ -48,17 +49,17 @@ public class UserControllerImpl implements UserOperationInterface{
         newUser.setCity(city);
         newUser.setState(state);
         newUser.setZip_code(zip);
-        
-       Bankroll newBankroll = new Bankroll();
-       newBankroll.setUserName(userName);
-       newBankroll.setBalance(0.00F);
-       mongoTemplate.save(newBankroll);
 
         LOGGER.info("adding the user " + newUser + " to the database");
         mongoTemplate.save(newUser);
+        //If user is added to the DB successfully then create the user's bankroll with 0.00 balance 
+        Bankroll newBankroll = new Bankroll();
+        newBankroll.setUserName(userName);
+        newBankroll.setBalance(0.00F);
+        LOGGER.info("Bankroll for user " + newUser.getUserName() + " is available for deposit");
+        mongoTemplate.save(newBankroll);
 
     }
-
 
     @Override
     @GetMapping("/user/getUser")
@@ -69,16 +70,14 @@ public class UserControllerImpl implements UserOperationInterface{
         List<User> userList = mongoTemplate.find(query, User.class, "users");
         return userList.get(0);
     }
-    
-    @Override    
+
+    @Override
     @PostMapping("/user/deleteUser")
     public void deleteUser(@RequestParam String userName) {
         Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(userName));
         mongoTemplate.findAllAndRemove(query, User.class, "users");
     }
-    
-  
 
     @Override
     @GetMapping("/user/editUserAddress")
@@ -92,15 +91,14 @@ public class UserControllerImpl implements UserOperationInterface{
         update.set("state", state);
         update.set("zip_code", zip);
         User updatedUser = mongoTemplate.findAndModify(query, update, User.class);
-        try{
-        updatedUser = getUser(userName);
-        }
-        catch (IndexOutOfBoundsException ex){
-        LOGGER.error("Cannot edit user's address, the username provided (" + userName + ") does not exist in the system ");
+        try {
+            updatedUser = getUser(userName);
+        } catch (IndexOutOfBoundsException ex) {
+            LOGGER.error("Cannot edit user's address, the username provided (" + userName + ") does not exist in the system ");
         }
         return updatedUser;
     }
-    
+
     @Override
     @GetMapping("/user/editUserProperName")
     @ResponseBody
@@ -111,32 +109,30 @@ public class UserControllerImpl implements UserOperationInterface{
         update.set("firstName", firstName);
         update.set("lastName", lastName);
         User updatedUser = mongoTemplate.findAndModify(query, update, User.class);
-        try{
-        updatedUser = getUser(userName);
-        }
-        catch (IndexOutOfBoundsException ex){
-        LOGGER.error("Cannot edit the user's name, the username provided (" + userName + ") does not exist in the system");
+        try {
+            updatedUser = getUser(userName);
+        } catch (IndexOutOfBoundsException ex) {
+            LOGGER.error("Cannot edit the user's name, the username provided (" + userName + ") does not exist in the system");
         }
         return updatedUser;
 
     }
-    
+
     @Override
     @GetMapping("/user/editUserEmail")
     @ResponseBody
     public User editUserEmail(String userName, String email) {
-       Query query = new Query();
+        Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(userName));
         Update update = new Update();
         update.set("email", email);
         User updatedUser = mongoTemplate.findAndModify(query, update, User.class);
-        try{
-        updatedUser = getUser(userName);
+        try {
+            updatedUser = getUser(userName);
+        } catch (IndexOutOfBoundsException ex) {
+            LOGGER.error("Cannot edit the user's email, the username provided (" + userName + ") does not exist in the system");
         }
-        catch (IndexOutOfBoundsException ex){
-        LOGGER.error("Cannot edit the user's email, the username provided (" + userName + ") does not exist in the system");
-        }
-        return updatedUser;        
+        return updatedUser;
     }
 
     @Override
@@ -144,24 +140,22 @@ public class UserControllerImpl implements UserOperationInterface{
     @ResponseBody
     public List<User> listUsers() {
         List<User> users = mongoTemplate.findAll(User.class);
-        return users; 
+        return users;
     }
 
-         
-    /* Do not expose the following endpoints to the end user */ 
+    /* Do not expose the following endpoints to the end user */
     @ApiIgnore
     @GetMapping("/user/deleteAllUsers")
     public void deleteAllUsers() {
         List<User> allUsers = listUsers();
-        for(User user : allUsers)
-        {
+        for (User user : allUsers) {
             Query query = new Query();
             query.addCriteria(Criteria.where("userName").is(user.getUserName()));
             mongoTemplate.findAllAndRemove(query, User.class, "users");
         }
-    } 
-    
-    public String createUserId(String userName){
-    return  userName + ":" + UUID.randomUUID().toString();
-    }    
+    }
+
+    public String createUserId(String userName) {
+        return userName + ":" + UUID.randomUUID().toString();
+    }
 }

@@ -156,22 +156,8 @@ public class BankingControllerImpl implements BankingOperationInterface {
         return bankroll;
     }
 
-    /* Do not expose the following endpoints to the end user */
-    @ApiIgnore
-    @GetMapping("/bankroll/deleteAllBankrolls")
-    public void deleteAllBankrolls() {
-        List<Bankroll> allBankrolls = listAllBankrolls();
-        for (Bankroll bankroll : allBankrolls) {
-            Query query = new Query();
-            query.addCriteria(Criteria.where("userName").is(bankroll.getUserName()));
-            mongoTemplate.findAllAndRemove(query, Bankroll.class, "bankrolls");
-        }
-    }
-
     public List<Bankroll> listAllBankrolls() {
-        List<String> userNames = new ArrayList();
         List<Bankroll> bankrollList = mongoTemplate.findAll(Bankroll.class);
-
         return bankrollList;
     }
 
@@ -225,5 +211,17 @@ public class BankingControllerImpl implements BankingOperationInterface {
             return false;
         }
         return today.before(expirationDate);
+    }
+    
+     /* Do not expose the following endpoints to the end user */
+    @ApiIgnore
+    @GetMapping("/bankroll/deleteAllBankrolls")
+    public void deleteAllBankrolls() {
+        List<Bankroll> allBankrolls = listAllBankrolls();
+        for (Bankroll bankroll : allBankrolls) {
+            Query query = new Query();
+            query.addCriteria(Criteria.where("userName").is(bankroll.getUserName()));
+            mongoTemplate.findAllAndRemove(query, Bankroll.class, "bankrolls");
+        }
     }
 }
