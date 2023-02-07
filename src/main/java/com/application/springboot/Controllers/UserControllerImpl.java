@@ -2,7 +2,6 @@ package com.application.springboot.Controllers;
 
 import com.application.springboot.persistence.Bankroll;
 import com.application.springboot.persistence.User;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
@@ -38,7 +37,7 @@ public class UserControllerImpl implements UserOperationInterface {
     @PostMapping("/user/addUser")
     @ResponseBody
     public void addUser(@RequestParam String userName, String firstName, String lastName, String email,
-            String streetAddress, String city, String state, String zip) {
+            String streetAddress, String city, String state, String zip) throws Exception {
         User newUser = new User();
         newUser.setUserName(userName);
         newUser.setUniqueUserId(createUserId(userName));
@@ -50,15 +49,24 @@ public class UserControllerImpl implements UserOperationInterface {
         newUser.setState(state);
         newUser.setZip_code(zip);
 
-        LOGGER.info("adding the user " + newUser + " to the database");
-        mongoTemplate.save(newUser);
+        try {
+            LOGGER.info("adding the user " + newUser + " to the database");
+            mongoTemplate.save(newUser);
+        } catch (Exception ex) {
+            if (ex.getMessage().contains("userName")) {
+                throw new Exception("Caught Mongo write error duplicate key, userName " + userName + " is already in use");
+            } else if (ex.getMessage().contains("email")) {
+                throw new Exception("Caught Mongo write error duplicate key, email " + email + " is already in use");
+            } else {
+                throw new Exception(ex);
+            }
+        }
         //If user is added to the DB successfully then create the user's bankroll with 0.00 balance 
         Bankroll newBankroll = new Bankroll();
         newBankroll.setUserName(userName);
         newBankroll.setBalance(0.00F);
         LOGGER.info("Bankroll for user " + newUser.getUserName() + " is available for deposit");
         mongoTemplate.save(newBankroll);
-
     }
 
     @Override

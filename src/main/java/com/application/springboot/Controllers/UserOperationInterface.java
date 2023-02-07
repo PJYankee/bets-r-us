@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 public interface UserOperationInterface {
 
-    public void addUser(@RequestParam String userName, String firstName, String lastName, String email, String streetAddress, String city, String state, String zip);
+    public void addUser(@RequestParam String userName, String firstName, String lastName, String email, 
+                                String streetAddress, String city, String state, String zip) throws Exception;
 
     public void deleteUser(@RequestParam String userName);
 
