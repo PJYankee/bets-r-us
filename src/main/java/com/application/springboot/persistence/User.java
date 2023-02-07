@@ -11,13 +11,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "users")
 public class User {
     @Id
+    private String uniqueUserId;
     private String userName;
-    @Indexed(unique = true)
     @ApiModelProperty(required = true)
     private String firstName;
     @ApiModelProperty(required = true)
     private String lastName;
-    @Indexed(unique = true)
     @ApiModelProperty(required = true)
     private String email;
     @ApiModelProperty(required = true)
@@ -36,15 +35,16 @@ public class User {
     @Override
     public String toString() {
         return "User{"
-                + ", userName=" + userName + '\''
-                + ", firstName=" + firstName
-                + ", userName=" + lastName
-                + ", email=" + email
-                + ", Street_Address=" + Street_Address + '\''
-                + ", City=" + city + '\''
-                + ", state=" + state + '\''
-                + ", zip_code=" + zip_code + '\''
-                + '}';
+                + "  userName = " + userName + " "
+                + "  uniqueUserId = " + uniqueUserId + " "
+                + ", firstName = " + firstName + " "
+                + ", lastName=" + lastName + " "
+                + ", email=" + email + " "
+                + ", Street_Address=" + Street_Address + " "
+                + ", City=" + city + " "
+                + ", state=" + state + " "
+                + ", zip_code=" + zip_code + " "
+                + "}";
     }
 
     public String getUserName() {
@@ -110,4 +110,14 @@ public class User {
     public void setZip_code(String zip_code) {
         this.zip_code = zip_code;
     }
+
+    public String getUniqueUserId() {
+        return uniqueUserId;
+    }
+
+    public void setUniqueUserId(String uniqueUserId) {
+        this.uniqueUserId = uniqueUserId;
+    }
+    
+    
 }

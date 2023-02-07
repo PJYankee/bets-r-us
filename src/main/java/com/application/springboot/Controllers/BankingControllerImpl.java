@@ -1,6 +1,7 @@
 package com.application.springboot.Controllers;
 
 import com.application.springboot.persistence.Bankroll;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
 
     private static final Logger LOGGER = LogManager.getLogger(BankingControllerImpl.class);
     private MongoTemplate mongoTemplate;
+    DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
     @Autowired
     public void setMongoTemplate(MongoTemplate mongoTemplate) {
@@ -42,7 +44,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
             Query query = new Query();
             query.addCriteria(Criteria.where("userName").is(userName));
             Float oldBalance = bankroll.getBalance();
-            Float newBalance = oldBalance + amount;
+            Float newBalance = Float.valueOf(decimalFormat.format(oldBalance + amount));
             Update update = new Update();
             update.set("balance", newBalance);
             Bankroll updatedBankroll = mongoTemplate.findAndModify(query, update, Bankroll.class);
@@ -66,7 +68,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
             Query query = new Query();
             query.addCriteria(Criteria.where("userName").is(userName));
             Float oldBalance = bankroll.getBalance();
-            Float newBalance = oldBalance + amount;
+            Float newBalance = Float.valueOf(decimalFormat.format(oldBalance + amount));
             Update update = new Update();
             update.set("balance", newBalance);
             Bankroll updatedBankroll = mongoTemplate.findAndModify(query, update, Bankroll.class);
@@ -90,7 +92,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
             Query query = new Query();
             query.addCriteria(Criteria.where("userName").is(userName));
             Float oldBalance = bankroll.getBalance();
-            Float newBalance = oldBalance - amount;
+            Float newBalance = Float.valueOf(decimalFormat.format(oldBalance - amount));
             if (newBalance < 0.00F) {
                 LOGGER.error("withdraw failed, user does not have sufficient funds to withdraw");
                 return bankroll;

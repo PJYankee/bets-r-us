@@ -41,8 +41,8 @@ public class Bankroll {
     @Override
     public String toString() {
         return "Bankroll{"
-                + ", userName=" + userName + '\''
-                + ", balence=" + balance
+                + ", userName = " + userName + " "
+                + ", balence = " + balance
                 + '}';
     }  
 

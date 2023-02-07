@@ -4,6 +4,7 @@ import com.application.springboot.persistence.Bankroll;
 import com.application.springboot.persistence.User;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.web.bind.annotation.PostMapping;
 import springfox.documentation.annotations.ApiIgnore;
 
 /**
@@ -32,12 +34,13 @@ public class UserControllerImpl implements UserOperationInterface{
     }
 
     @Override
-    @GetMapping("/user/addUser")
+    @PostMapping("/user/addUser")
     @ResponseBody
-    public User addUser(@RequestParam String userName, String firstName, String lastName, String email, 
+    public void addUser(@RequestParam String userName, String firstName, String lastName, String email, 
                                                 String streetAddress, String city, String state, String zip) {
         User newUser = new User();
         newUser.setUserName(userName);
+        newUser.setUniqueUserId(createUserId(userName));
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
         newUser.setEmail(email);
@@ -46,28 +49,29 @@ public class UserControllerImpl implements UserOperationInterface{
         newUser.setState(state);
         newUser.setZip_code(zip);
         
-        Bankroll newBankroll = new Bankroll();
-        newBankroll.setUserName(userName);
-        newBankroll.setBalance(0.00F);
-        mongoTemplate.save(newBankroll);
-        
-        LOGGER.info("The user " + userName + " has successfully been added to the database");
-        return mongoTemplate.save(newUser);
+       Bankroll newBankroll = new Bankroll();
+       newBankroll.setUserName(userName);
+       newBankroll.setBalance(0.00F);
+       mongoTemplate.save(newBankroll);
+
+        LOGGER.info("adding the user " + newUser + " to the database");
+        mongoTemplate.save(newUser);
+
     }
 
 
     @Override
     @GetMapping("/user/getUser")
     @ResponseBody
-    public List<User> getUser(@RequestParam String userName) {
+    public User getUser(@RequestParam String userName) {
         Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(userName));
-
-        return mongoTemplate.find(query, User.class, "users");
+        List<User> userList = mongoTemplate.find(query, User.class, "users");
+        return userList.get(0);
     }
     
     @Override    
-    @GetMapping("/user/deleteUser")
+    @PostMapping("/user/deleteUser")
     public void deleteUser(@RequestParam String userName) {
         Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(userName));
@@ -89,7 +93,7 @@ public class UserControllerImpl implements UserOperationInterface{
         update.set("zip_code", zip);
         User updatedUser = mongoTemplate.findAndModify(query, update, User.class);
         try{
-        updatedUser = getUser(userName).get(0);
+        updatedUser = getUser(userName);
         }
         catch (IndexOutOfBoundsException ex){
         LOGGER.error("Cannot edit user's address, the username provided (" + userName + ") does not exist in the system ");
@@ -108,7 +112,7 @@ public class UserControllerImpl implements UserOperationInterface{
         update.set("lastName", lastName);
         User updatedUser = mongoTemplate.findAndModify(query, update, User.class);
         try{
-        updatedUser = getUser(userName).get(0);
+        updatedUser = getUser(userName);
         }
         catch (IndexOutOfBoundsException ex){
         LOGGER.error("Cannot edit the user's name, the username provided (" + userName + ") does not exist in the system");
@@ -127,7 +131,7 @@ public class UserControllerImpl implements UserOperationInterface{
         update.set("email", email);
         User updatedUser = mongoTemplate.findAndModify(query, update, User.class);
         try{
-        updatedUser = getUser(userName).get(0);
+        updatedUser = getUser(userName);
         }
         catch (IndexOutOfBoundsException ex){
         LOGGER.error("Cannot edit the user's email, the username provided (" + userName + ") does not exist in the system");
@@ -138,14 +142,9 @@ public class UserControllerImpl implements UserOperationInterface{
     @Override
     @GetMapping("/user/listUsers")
     @ResponseBody
-    public List<String> listUsers() {
-        LOGGER.info("Listing all user names from endpoint /user/listUsers");
-        List<String> userNames =  new ArrayList();
+    public List<User> listUsers() {
         List<User> users = mongoTemplate.findAll(User.class);
-        for (User user : users){
-        userNames.add(user.getUserName());
-        }
-        return userNames; 
+        return users; 
     }
 
          
@@ -153,12 +152,16 @@ public class UserControllerImpl implements UserOperationInterface{
     @ApiIgnore
     @GetMapping("/user/deleteAllUsers")
     public void deleteAllUsers() {
-        List<String> userNames = listUsers();
-        for(String userName : userNames)
+        List<User> allUsers = listUsers();
+        for(User user : allUsers)
         {
             Query query = new Query();
-            query.addCriteria(Criteria.where("userName").is(userName));
+            query.addCriteria(Criteria.where("userName").is(user.getUserName()));
             mongoTemplate.findAllAndRemove(query, User.class, "users");
         }
     } 
+    
+    public String createUserId(String userName){
+    return  userName + ":" + UUID.randomUUID().toString();
+    }    
 }
