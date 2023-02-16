@@ -1,5 +1,6 @@
-package com.application.springboot.Controllers;
+package com.application.springboot.controllers;
 
+import com.application.springboot.interfaces.UserOperationInterface;
 import com.application.springboot.persistence.Bankroll;
 import com.application.springboot.persistence.User;
 import java.util.List;
