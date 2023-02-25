@@ -1,5 +1,6 @@
 package com.application.springboot;
 
+import com.application.springboot.system.OddsApiHandler;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,6 +24,9 @@ import org.springframework.data.mongodb.core.index.Index;
 public class Application {
 
     @Value("${application.hostname}") private String hostname; 
+    @Value("${apikey}") private String apikey;
+    @Value("${baseurl}") private String baseurl;
+
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args); 
@@ -46,4 +50,15 @@ public class Application {
         template.indexOps("users").ensureIndex(new Index("userName", Direction.ASC).unique());
         return template;
     } 
+    
+    @Bean
+    public OddsApiHandler oddsApiHandler(){
+        OddsApiHandler handler = new OddsApiHandler();
+        handler.apikey = apikey;
+        handler.baseUrl = baseurl;
+    
+        return handler;
+    }
+    
+
 }
