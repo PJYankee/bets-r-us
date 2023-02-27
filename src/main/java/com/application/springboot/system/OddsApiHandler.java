@@ -30,7 +30,7 @@ public class OddsApiHandler {
         urlStringBuilder.append(baseUrl);
 
         if (headers.containsKey("operation")) {
-            urlStringBuilder = urlStringBuilder.append(headers.get("operation")).append("?").append("apiKey=").append(apikey);
+            urlStringBuilder = urlStringBuilder.append(headers.get("operation")).append("?").append("apiKey=").append(apikey).append("&");
         } else {
             throw new Exception("The requested url contains no operation");
         }
@@ -40,10 +40,7 @@ public class OddsApiHandler {
             }
         }
         String requestUrlString = urlStringBuilder.toString();
-
-        if (requestUrlString.contains("&")) {
-            urlStringBuilder.substring(0, urlStringBuilder.lastIndexOf("&"));
-        }
+        requestUrlString = requestUrlString.substring(0, requestUrlString.lastIndexOf("&"));
         requestUrlString = requestUrlString.replaceAll(" ", "+");
         URL url = new URL(requestUrlString);
 
