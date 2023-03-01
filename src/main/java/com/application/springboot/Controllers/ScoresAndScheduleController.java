@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.application.springboot.interfaces.ScoresAndScheduleInterface;
+import java.util.TimeZone;
 
 /**
  *
@@ -40,6 +41,8 @@ public class ScoresAndScheduleController implements ScoresAndScheduleInterface{
     @GetMapping("/scores/getLiveScores")
     @ResponseBody
     public List<Object> getLiveScores(SportsEnum sport) {
+       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+       sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
        List<Object> responseList= new ArrayList();
        List<Object> liveScoreList= new ArrayList();       
        
@@ -55,17 +58,25 @@ public class ScoresAndScheduleController implements ScoresAndScheduleInterface{
             responseList = handler.parseResponseList(jsonResponseString);
             
             for (Object game : responseList){
-                LinkedHashMap<String, String> gameMap = new LinkedHashMap();
-                gameMap = (LinkedHashMap) game;
+                LinkedHashMap<String, Object> gameMap = (LinkedHashMap) game;
                 
-                if (gameMap.containsKey("commence_time")){}
+                if (gameMap.containsKey("commence_time") && gameMap.containsKey("completed")){
+                    String startTime = (String) gameMap.get("commence_time");
+                    Date gameStart = sdf.parse(startTime);
+                    Date now = new Date();
+                    Boolean isCompleted = (Boolean) gameMap.get("completed");
+                    
+                        if (gameStart.before(now) && !isCompleted ){
+                        liveScoreList.add(game);
+                        }
+                }
             }
 
         } catch (Exception ex) {
             LOGGER.error(ex.getMessage(), ex);
         }
           
-        return responseList;
+        return liveScoreList;
     }
 
     @Override
@@ -105,10 +116,11 @@ public class ScoresAndScheduleController implements ScoresAndScheduleInterface{
     }
 
     @Override
-    @GetMapping("/scores/getScheduledGames")
+    @GetMapping("/scores/getUpcomingGames")
     @ResponseBody
     public List<Object> getUpcomingGames(SportsEnum sport) {
-       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.'Z'");
+       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+       sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
        List<Object> responseList= new ArrayList();
        List<Object> upcomingGames= new ArrayList();  
          try {
@@ -123,13 +135,13 @@ public class ScoresAndScheduleController implements ScoresAndScheduleInterface{
             responseList = handler.parseResponseList(jsonResponseString);
             
             for (Object game : responseList){
-                LinkedHashMap<String, Object> gameMap = new LinkedHashMap();
-                gameMap = (LinkedHashMap) game;
+                LinkedHashMap<String, Object> gameMap = (LinkedHashMap) game;
                 
                 if (gameMap.containsKey("commence_time")){
-                    Date gameStart = sdf.parse(gameMap.get("commence_time").toString());
+                    String startTime = (String) gameMap.get("commence_time");
+                    Date gameStart = sdf.parse(startTime);
                     Date now = new Date();
-                    
+
                         if (now.before(gameStart)){
                         upcomingGames.add(game);
                         }
@@ -144,7 +156,9 @@ public class ScoresAndScheduleController implements ScoresAndScheduleInterface{
     }
 
     private String getSportKey(SportsEnum sport) {
-        
+        if (sport == null){
+            throw new NullPointerException("null pointer exception, sport cannot have null value");
+        }
         String sportKey = "";
         switch (sport) {
             case FOOTBALL:
