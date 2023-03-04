@@ -1,6 +1,6 @@
 package com.application.springboot.interfaces;
 
-import com.application.springboot.persistence.User;
+import com.application.springboot.objects.User;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestParam;
 

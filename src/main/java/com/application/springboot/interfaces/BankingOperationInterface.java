@@ -1,6 +1,6 @@
 package com.application.springboot.interfaces;
 
-import com.application.springboot.persistence.Bankroll;
+import com.application.springboot.objects.Bankroll;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**

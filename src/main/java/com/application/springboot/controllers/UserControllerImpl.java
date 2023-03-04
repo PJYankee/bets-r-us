@@ -1,8 +1,8 @@
 package com.application.springboot.controllers;
 
 import com.application.springboot.interfaces.UserOperationInterface;
-import com.application.springboot.persistence.Bankroll;
-import com.application.springboot.persistence.User;
+import com.application.springboot.objects.Bankroll;
+import com.application.springboot.objects.User;
 import java.util.List;
 import java.util.UUID;
 import org.apache.logging.log4j.LogManager;

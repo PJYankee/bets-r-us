@@ -1,6 +1,6 @@
 package com.application.springboot.Controllers;
 
-import com.application.springboot.persistence.User;
+import com.application.springboot.objects.User;
 import org.easymock.EasyMock;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.replay;

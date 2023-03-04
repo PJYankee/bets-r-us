@@ -1,4 +1,4 @@
-package com.application.springboot.persistence;
+package com.application.springboot.objects;
 
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.data.annotation.Id;

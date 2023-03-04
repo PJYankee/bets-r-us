@@ -8,12 +8,10 @@ import java.util.Map;
  *
  * @author paul.perez
  */
-public interface ScoresAndScheduleInterface {
+public interface ScoresInterface {
 
     public List<Object> getLiveScores(SportsEnum sport);
 
     public List<Object> getFinalScores(SportsEnum sport);
-    
-    public List<Object> getUpcomingGames(SportsEnum sport);
 
 }

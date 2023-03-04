@@ -12,7 +12,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.boot.json.JsonParser;
 import org.springframework.boot.json.JsonParserFactory;
-import org.springframework.stereotype.Component;
 
 /**
  *
@@ -47,7 +46,7 @@ public class OddsApiHandler {
         return url;
     }
 
-    public StringBuffer executeUrl(URL url) {
+    public StringBuffer executeGetUrl(URL url) {
         StringBuffer content = new StringBuffer();
         try {
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -62,11 +61,54 @@ public class OddsApiHandler {
 
             in.close();
         } catch (IOException x) {
-            LOGGER.error("Error executing call to external function ", x);
+            LOGGER.error("Error executing call to external api ", x);
         }
 
         return content;
     }
+    
+        public StringBuffer executePostUrl(URL url) {
+        StringBuffer content = new StringBuffer();
+        try {
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("POST");
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
+            String inputLine;
+
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+            }
+
+            in.close();
+        } catch (IOException x) {
+            LOGGER.error("Error executing call to external api ", x);
+        }
+
+        return content;
+    }
+        
+    public String getSportKey(SportsEnum sport) {
+        if (sport == null){
+            throw new NullPointerException("null pointer exception, sport cannot have null value");
+        }
+        String sportKey = "";
+        switch (sport) {
+            case FOOTBALL:
+                sportKey = "americanfootball_nfl";
+                break;
+            case BASKETBALL:
+                sportKey = "basketball_nba";
+                break;
+            case BASEBALL:
+                sportKey = "baseball_mlb";
+                break;
+            case HOCKEY:
+                sportKey = "icehockey_nhl";
+                break;
+        }
+        return sportKey;
+    }        
 
     public Map<String, Object> parseResponseMap(String json) {
 
