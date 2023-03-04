@@ -2,75 +2,46 @@ package com.application.springboot.objects;
 
 
 import java.util.List;
+import java.util.Map;
 /**
  *
  * @author "paul.perez"
  */
 public class Odds {
-   Integer home_moneyline;
-   Integer away_moneyline;
-   List<Float> homeSpreads;
-   List<Float> awaySpreads;
-   List<Float> overTotals;
-   List<Float> underTotals;
+    List<Map<String, Object>> moneylines;
+        List<Map<String, Object>> spreads;
+            List<Map<String, Object>> over_under;
 
-    public Integer getHome_moneyline() {
-        return home_moneyline;
+    public List<Map<String, Object>> getMoneylines() {
+        return moneylines;
     }
 
-    public void setHome_moneyline(Integer home_moneyline) {
-        this.home_moneyline = home_moneyline;
+    public void setMoneylines(List<Map<String, Object>> moneylines) {
+        this.moneylines = moneylines;
     }
 
-    public Integer getAway_moneyline() {
-        return away_moneyline;
+    public List<Map<String, Object>> getSpreads() {
+        return spreads;
     }
 
-    public void setAway_moneyline(Integer away_moneyline) {
-        this.away_moneyline = away_moneyline;
+    public void setSpreads(List<Map<String, Object>> spreads) {
+        this.spreads = spreads;
     }
 
-    public List<Float> getHomeSpreads() {
-        return homeSpreads;
+    public List<Map<String, Object>> getOver_under() {
+        return over_under;
     }
 
-    public void setHomeSpreads(List<Float> homeSpreads) {
-        this.homeSpreads = homeSpreads;
+    public void setOver_under(List<Map<String, Object>> over_under) {
+        this.over_under = over_under;
     }
-
-    public List<Float> getAwaySpreads() {
-        return awaySpreads;
-    }
-
-    public void setAwaySpreads(List<Float> awaySpreads) {
-        this.awaySpreads = awaySpreads;
-    }
-
-    public List<Float> getOverTotals() {
-        return overTotals;
-    }
-
-    public void setOverTotals(List<Float> overTotals) {
-        this.overTotals = overTotals;
-    }
-
-    public List<Float> getUnderTotals() {
-        return underTotals;
-    }
-
-    public void setUnderTotals(List<Float> underTotals) {
-        this.underTotals = underTotals;
-    }
-
     @Override
     public String toString() {
         return "Odds{"
-                + ", home_moneyline = " + home_moneyline 
-                + ", away_moneyline = " + away_moneyline + " "
-                + ", homeSpreads = " + homeSpreads + " "
-                + ", awaySpreads = " + awaySpreads + " " 
-                + ", overTotals = " + overTotals + " "    
-                + ", underTotals = " + underTotals + " "                
+                + ", moneylines = " + moneylines 
+                + ", spreads = " + spreads + " "
+                + ", over_under = " + over_under + " "
+           
                 + '}';
     }
 

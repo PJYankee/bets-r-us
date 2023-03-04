@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 package com.application.springboot.objects;
 
 /**
@@ -11,13 +6,13 @@ package com.application.springboot.objects;
  */
 public class MockOddsResponseJson {
     
-    String mockResponseJson = "  {\n" +
-"  \"id\": \"54c416e4d51794304103b36b1c61403f\",\n" +
+    String mockResponseJson = "{\n" +
+"  \"id\": \"1349c6fefff297a9e31e13dd732dd97b\",\n" +
 "  \"sport_key\": \"icehockey_nhl\",\n" +
 "  \"sport_title\": \"NHL\",\n" +
-"  \"commence_time\": \"2023-03-04T02:30:00Z\",\n" +
-"  \"home_team\": \"Arizona Coyotes\",\n" +
-"  \"away_team\": \"Carolina Hurricanes\",\n" +
+"  \"commence_time\": \"2023-03-04T18:00:00Z\",\n" +
+"  \"home_team\": \"Boston Bruins\",\n" +
+"  \"away_team\": \"New York Rangers\",\n" +
 "  \"bookmakers\": [\n" +
 "    {\n" +
 "      \"key\": \"draftkings\",\n" +
@@ -25,46 +20,46 @@ public class MockOddsResponseJson {
 "      \"markets\": [\n" +
 "        {\n" +
 "          \"key\": \"h2h\",\n" +
-"          \"last_update\": \"2023-03-03T14:04:38Z\",\n" +
+"          \"last_update\": \"2023-03-04T18:00:47Z\",\n" +
 "          \"outcomes\": [\n" +
 "            {\n" +
-"              \"name\": \"Arizona Coyotes\",\n" +
-"              \"price\": 295\n" +
+"              \"name\": \"Boston Bruins\",\n" +
+"              \"price\": -170\n" +
 "            },\n" +
 "            {\n" +
-"              \"name\": \"Carolina Hurricanes\",\n" +
-"              \"price\": -360\n" +
+"              \"name\": \"New York Rangers\",\n" +
+"              \"price\": 145\n" +
 "            }\n" +
 "          ]\n" +
 "        },\n" +
 "        {\n" +
 "          \"key\": \"spreads\",\n" +
-"          \"last_update\": \"2023-03-03T14:04:38Z\",\n" +
+"          \"last_update\": \"2023-03-04T18:00:47Z\",\n" +
 "          \"outcomes\": [\n" +
 "            {\n" +
-"              \"name\": \"Arizona Coyotes\",\n" +
-"              \"price\": 115,\n" +
-"              \"point\": 1.5\n" +
+"              \"name\": \"Boston Bruins\",\n" +
+"              \"price\": 145,\n" +
+"              \"point\": -1.5\n" +
 "            },\n" +
 "            {\n" +
-"              \"name\": \"Carolina Hurricanes\",\n" +
-"              \"price\": -135,\n" +
-"              \"point\": -1.5\n" +
+"              \"name\": \"New York Rangers\",\n" +
+"              \"price\": -170,\n" +
+"              \"point\": 1.5\n" +
 "            }\n" +
 "          ]\n" +
 "        },\n" +
 "        {\n" +
 "          \"key\": \"totals\",\n" +
-"          \"last_update\": \"2023-03-03T14:04:38Z\",\n" +
+"          \"last_update\": \"2023-03-04T18:00:47Z\",\n" +
 "          \"outcomes\": [\n" +
 "            {\n" +
 "              \"name\": \"Over\",\n" +
-"              \"price\": -110,\n" +
+"              \"price\": 100,\n" +
 "              \"point\": 6\n" +
 "            },\n" +
 "            {\n" +
 "              \"name\": \"Under\",\n" +
-"              \"price\": -110,\n" +
+"              \"price\": -120,\n" +
 "              \"point\": 6\n" +
 "            }\n" +
 "          ]\n" +

@@ -3,6 +3,7 @@ package com.application.springboot.controllers;
 import com.application.springboot.interfaces.ScheduleInterface;
 import com.application.springboot.objects.Game;
 import com.application.springboot.objects.MockOddsResponseJson;
+import com.application.springboot.objects.MockUpcomingGamesJson;
 import com.application.springboot.objects.Odds;
 import com.application.springboot.system.OddsApiHandler;
 import com.application.springboot.system.SportsEnum;
@@ -54,8 +55,9 @@ public class ScheduleController implements ScheduleInterface{
             headers.put("operation", op);
 
             requestGamesUrl = handler.urlBuilder(headers);
-            String jsonResponseString = handler.executeGetUrl(requestGamesUrl).toString();
-
+         //TODO reconnect API for live upcoming games   String jsonResponseString = handler.executeGetUrl(requestGamesUrl).toString();
+            MockUpcomingGamesJson mockJson = new MockUpcomingGamesJson();
+            String jsonResponseString = mockJson.getMockUpcomingJson();
             responseList = handler.parseResponseList(jsonResponseString);
 
             for (Object scheduledGame : responseList) {
@@ -74,6 +76,7 @@ public class ScheduleController implements ScheduleInterface{
                         newGame.setAway_team((String) gameMap.get("away_team"));
                         
                         Odds odds = getOdds((String) gameMap.get("id"), sport);
+                        newGame.setOdds(odds);
                         upcomingGames.add(newGame);
                     }
                 }
@@ -87,9 +90,10 @@ public class ScheduleController implements ScheduleInterface{
     }
 
     private Odds getOdds(String id, SportsEnum sport) {
-       Map<String, Object> responseMap= new HashMap();
+        Map<String, Object> responseMap = new HashMap();
+        List<Map<String, Object>> outcomes  = new ArrayList();      
 
-       Odds odds = new Odds();       
+        Odds odds = new Odds();
         try {
             MockOddsResponseJson mockJson = new MockOddsResponseJson();
             String op = handler.getSportKey(sport) + "/events/" + id + "/odds";
@@ -100,41 +104,44 @@ public class ScheduleController implements ScheduleInterface{
             headers.put("dateFormat", "iso");
             headers.put("oddsFormat", "american");
             headers.put("bookmakers", "draftkings");
-            
-            requestOddsUrl =handler.urlBuilder(headers);
- // TODO reconnect API for live odds  --->  String jsonResponseString = handler.executeGetUrl(requestOddsUrl).toString();
+
+            requestOddsUrl = handler.urlBuilder(headers);
+            // TODO reconnect API for live odds  --->  String jsonResponseString = handler.executeGetUrl(requestOddsUrl).toString();
             String jsonResponseString = mockJson.getMockResponseJson();
             responseMap = handler.parseResponseMap(jsonResponseString);
-            
-            if (responseMap.containsKey("bookmakers")){
+
+            if (responseMap.containsKey("bookmakers")) {
                 List<Object> responseObjects = (List<Object>) responseMap.get("bookmakers");
                 String homeTeam = (String) responseMap.get("home_team");
-                String awayTeam  = (String) responseMap.get("away_team");
-                
-                Map<String,Object> markets = (Map<String,Object>) responseObjects.get(0);
-                List<Object> allBetOptions = (List<Object>) markets.get("markets");
-                
-                for (Object betOption : allBetOptions)
-                {
-                Map<String,Object> option = (Map<String,Object>) betOption;
-                String noop = "noop";
-                
-                }
-                
-               /* 
-                Map<String,Object> h2hOptions = (Map<String,Object>) betOptions.get(0);
-                
-                Map<String,Object> spreadOptions = (Map<String,Object>) betOptions.get(1);
-                
-                Map<String,Object> totalsOptions = (Map<String,Object>) betOptions.get(2);                
-               */ 
+                String awayTeam = (String) responseMap.get("away_team");
 
-                
+                Map<String, Object> markets = (Map<String, Object>) responseObjects.get(0);
+                List<Object> allBetOptions = (List<Object>) markets.get("markets");
+
+                for (Object betOption : allBetOptions) {
+                    Map<String, Object> option = (Map<String, Object>) betOption;
+
+                    switch ((String) option.get("key")) {
+                        case "h2h":
+                            odds.setMoneylines((List<Map<String, Object>>) option.get("outcomes"));
+                            break;
+                        case "spreads":
+                            odds.setSpreads((List<Map<String, Object>>) option.get("outcomes"));
+                            break;
+                        case "totals":
+                            odds.setOver_under((List<Map<String, Object>>) option.get("outcomes"));
+                            break;
+                        default:
+                            LOGGER.error("unable to get odds for contest");
+                            break;
+
+                    }
+
+                }
                 String noop = "noop";
             
             
             }
-           // for (Map.Entry<String, Object> gameOdds : responseMap.entrySet())         
             
         } catch (Exception ex) {
            LOGGER.error("Error retrieving odds for contest " + id, ex);
