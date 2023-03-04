@@ -3,6 +3,7 @@ package com.application.springboot.controllers;
 import com.application.springboot.interfaces.UserOperationInterface;
 import com.application.springboot.objects.Bankroll;
 import com.application.springboot.objects.User;
+import io.swagger.annotations.ApiOperation;
 import java.util.List;
 import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
@@ -37,6 +38,7 @@ public class UserControllerImpl implements UserOperationInterface {
     @Override
     @PostMapping("/user/addUser")
     @ResponseBody
+    @ApiOperation(value = "Adds a user account to the system", notes = "Returns the user object")
     public void addUser(@RequestParam String userName, String firstName, String lastName, String email,
             String streetAddress, String city, String state, String zip) throws Exception {
         User newUser = new User();
@@ -73,6 +75,7 @@ public class UserControllerImpl implements UserOperationInterface {
     @Override
     @GetMapping("/user/getUser")
     @ResponseBody
+    @ApiOperation(value = "Retrieve a user object from the database with a valid username", notes = "Returns the user object")
     public User getUser(@RequestParam String userName) {
         Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(userName));
@@ -82,6 +85,7 @@ public class UserControllerImpl implements UserOperationInterface {
 
     @Override
     @PostMapping("/user/deleteUser")
+    @ApiOperation(value = "Delete a user account from the system", notes = "Returns 200 on success")    
     public void deleteUser(@RequestParam String userName) {
         Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(userName));
@@ -91,6 +95,7 @@ public class UserControllerImpl implements UserOperationInterface {
     @Override
     @GetMapping("/user/editUserAddress")
     @ResponseBody
+    @ApiOperation(value = "Allows a user to change their mailing address", notes = "Returns the updated user object")    
     public User editUserAddress(String userName, String streetAddress, String city, String state, String zip) {
         Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(userName));
@@ -111,6 +116,7 @@ public class UserControllerImpl implements UserOperationInterface {
     @Override
     @GetMapping("/user/editUserProperName")
     @ResponseBody
+    @ApiOperation(value = "Allows the user to change their first or last name", notes = "Returns the user object")    
     public User editUserProperName(String userName, String firstName, String lastName) {
         Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(userName));
@@ -130,6 +136,7 @@ public class UserControllerImpl implements UserOperationInterface {
     @Override
     @GetMapping("/user/editUserEmail")
     @ResponseBody
+    @ApiOperation(value = "Allows the user to change their email address", notes = "Returns the user object")    
     public User editUserEmail(String userName, String email) {
         Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(userName));
@@ -147,6 +154,7 @@ public class UserControllerImpl implements UserOperationInterface {
     @Override
     @GetMapping("/user/listUsers")
     @ResponseBody
+    @ApiIgnore
     public List<User> listUsers() {
         List<User> users = mongoTemplate.findAll(User.class);
         return users;

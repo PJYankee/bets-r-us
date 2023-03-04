@@ -7,6 +7,7 @@ import com.application.springboot.mockdata.MockUpcomingGamesJson;
 import com.application.springboot.objects.Odds;
 import com.application.springboot.system.OddsApiHandler;
 import com.application.springboot.system.SportsEnum;
+import io.swagger.annotations.ApiOperation;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class ScheduleControllerImpl implements ScheduleInterface{
     @Override
     @GetMapping("/scores/getAllUpcomingGames")
     @ResponseBody
+    @ApiOperation(value = "Allows the user to view all upcoming games and the associated odds", notes = "Returns a list of Game objects")    
     public List<Game> getAllUpcomingGames(SportsEnum sport) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         sdf.setTimeZone(TimeZone.getTimeZone("GMT"));

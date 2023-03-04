@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.TimeZone;
 import com.application.springboot.interfaces.ScoresInterface;
+import io.swagger.annotations.ApiOperation;
 
 /**
  *
@@ -39,6 +40,7 @@ public class ScoresControllerImpl implements ScoresInterface{
 
     @Override
     @GetMapping("/scores/getLiveScores")
+    @ApiOperation(value = "Shows a list of scores for all active games by sport", notes = "Returns a list of score objects")    
     @ResponseBody
     public List<Object> getLiveScores(SportsEnum sport) {
        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
@@ -82,6 +84,7 @@ public class ScoresControllerImpl implements ScoresInterface{
     @Override
     @GetMapping("/scores/getFinalScores")
     @ResponseBody
+    @ApiOperation(value = "Shows a list of scores for all completed games by sport", notes = "Returns a list of score objects")    
     public List<Object> getFinalScores(SportsEnum sport) {
        List<Object> responseList= new ArrayList();
        List<Object> finalScores= new ArrayList();  

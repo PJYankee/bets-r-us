@@ -2,6 +2,7 @@ package com.application.springboot.controllers;
 
 import com.application.springboot.interfaces.BankingOperationInterface;
 import com.application.springboot.objects.Bankroll;
+import io.swagger.annotations.ApiOperation;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -39,6 +40,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
     @Override
     @GetMapping("/bankroll/addFundsCreditCard")
     @ResponseBody
+    @ApiOperation(value = "Allows the user to add funds to their bankroll with a valid credit card", notes = "Returns the updated Bankroll object")    
     public Bankroll addFundsCreditCard(String userName, String cardNumber, String expiration, String cvv, Float amount) {
         Bankroll bankroll = getBankroll(userName);
         if (checkCreditCardValid(cardNumber, expiration, cvv)) {
@@ -63,6 +65,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
     @Override
     @GetMapping("/bankroll/addFundsBankAccount")
     @ResponseBody
+    @ApiOperation(value = "Allows the user to add funds to their bankroll with a valid bank account", notes = "Returns the updated Bankroll object")      
     public Bankroll addFundsBankAccout(String userName, String accountNumber, String routingNumber, Float amount) {
         Bankroll bankroll = getBankroll(userName);
         if (checkBankAccountValid(accountNumber, routingNumber)) {
@@ -87,6 +90,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
     @Override
     @GetMapping("/bankroll/withdrawFundsBankAccount")
     @ResponseBody
+    @ApiOperation(value = "Allows the user to withdraw funds from their bankroll to an external bank account", notes = "Returns the updated Bankroll object")      
     public Bankroll withdrawFundsBankAccount(String userName, String accountNumber, String routingNumber, Float amount) {
         Bankroll bankroll = getBankroll(userName);
         if (checkBankAccountValid(accountNumber, routingNumber)) {
@@ -116,6 +120,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
     @Override
     @GetMapping("/bankroll/withdrawFundsCheck")
     @ResponseBody
+    @ApiOperation(value = "Allows the user to withdraw funds from their bankroll via check by mail", notes = "Returns the updated Bankroll object")      
     public Bankroll withdrawFundsCheck(String userName, Float amount) {
         Bankroll bankroll = getBankroll(userName);
         
@@ -123,26 +128,9 @@ public class BankingControllerImpl implements BankingOperationInterface {
     }
 
     @Override
-    @GetMapping("/bankroll/deductBetAmount")
-    @ResponseBody
-    public Bankroll deductBetAmount(String userName, Float amount) {
-        Bankroll bankroll = getBankroll(userName);
-        //TODO deduct bet amount from account when bet placed
-        return bankroll;
-    }
-
-    @Override
-    @GetMapping("/bankroll/addWinningsToBank")
-    @ResponseBody
-    public Bankroll addWinningsToBank(String userName, Float amount) {
-        Bankroll bankroll = getBankroll(userName);
-        //TODO if block for if bet won add winnings
-        return bankroll;
-    }
-
-    @Override
     @GetMapping("/bankroll/getBankroll")
     @ResponseBody
+    @ApiOperation(value = "Allows the user to view the balance of their bankroll", notes = "Returns the Bankroll object")  
     public Bankroll getBankroll(String userName) {
         List<Bankroll> bankrollList = new ArrayList();
         Bankroll bankroll = new Bankroll();
@@ -225,4 +213,24 @@ public class BankingControllerImpl implements BankingOperationInterface {
             mongoTemplate.findAllAndRemove(query, Bankroll.class, "bankrolls");
         }
     }
+    
+    @Override
+    @GetMapping("/bankroll/deductBetAmount")
+    @ResponseBody
+    @ApiIgnore
+    public Bankroll deductBetAmount(String userName, Float amount) {
+        Bankroll bankroll = getBankroll(userName);
+        //TODO deduct bet amount from account when bet placed
+        return bankroll;
+    }
+
+    @Override
+    @GetMapping("/bankroll/addWinningsToBank")
+    @ResponseBody
+    @ApiIgnore
+    public Bankroll addWinningsToBank(String userName, Float amount) {
+        Bankroll bankroll = getBankroll(userName);
+        //TODO if block for if bet won add winnings
+        return bankroll;
+    }    
 }
