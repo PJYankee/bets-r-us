@@ -1,4 +1,4 @@
-package com.application.springboot.objects;
+package com.application.springboot.mockdata;
 
 /**
  *

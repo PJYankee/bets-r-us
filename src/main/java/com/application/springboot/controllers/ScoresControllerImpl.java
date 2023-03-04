@@ -25,9 +25,9 @@ import com.application.springboot.interfaces.ScoresInterface;
  * @author "paul.perez"
  */
 @RestController
-public class ScoresController implements ScoresInterface{
+public class ScoresControllerImpl implements ScoresInterface{
 
-    private static final Logger LOGGER = LogManager.getLogger(ScoresController.class);     
+    private static final Logger LOGGER = LogManager.getLogger(ScoresControllerImpl.class);     
     OddsApiHandler handler;
     
     @Autowired

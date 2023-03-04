@@ -2,8 +2,8 @@ package com.application.springboot.controllers;
 
 import com.application.springboot.interfaces.ScheduleInterface;
 import com.application.springboot.objects.Game;
-import com.application.springboot.objects.MockOddsResponseJson;
-import com.application.springboot.objects.MockUpcomingGamesJson;
+import com.application.springboot.mockdata.MockOddsResponseJson;
+import com.application.springboot.mockdata.MockUpcomingGamesJson;
 import com.application.springboot.objects.Odds;
 import com.application.springboot.system.OddsApiHandler;
 import com.application.springboot.system.SportsEnum;
@@ -28,9 +28,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @author "paul.perez"
  */
 @RestController
-public class ScheduleController implements ScheduleInterface{
+public class ScheduleControllerImpl implements ScheduleInterface{
     
-    private static final Logger LOGGER = LogManager.getLogger(ScheduleController.class);     
+    private static final Logger LOGGER = LogManager.getLogger(ScheduleControllerImpl.class);     
     OddsApiHandler handler;
     URL requestGamesUrl;
     URL requestOddsUrl;  
@@ -68,8 +68,8 @@ public class ScheduleController implements ScheduleInterface{
                     Date gameStart = sdf.parse(startTime);
                     Date now = new Date();
 
-                    if (now.before(gameStart)) {
-                        
+                    //TODO reconnect for live API calls       if (now.before(gameStart)) {
+                    if (true)  {    
                         newGame.setStartTime(startTime);
                         newGame.setId((String) gameMap.get("id"));
                         newGame.setHome_team((String) gameMap.get("home_team"));
