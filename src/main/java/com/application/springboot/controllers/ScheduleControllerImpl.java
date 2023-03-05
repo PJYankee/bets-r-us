@@ -51,7 +51,6 @@ public class ScheduleControllerImpl implements ScheduleInterface{
         List<Object> responseList = new ArrayList();
         List<Game> upcomingGames = new ArrayList();
         try {
-
             String op = handler.getSportKey(sport) + "/scores";
             Map<String, String> headers = new HashMap();
             headers.put("operation", op);
@@ -94,7 +93,7 @@ public class ScheduleControllerImpl implements ScheduleInterface{
     private Odds getOdds(String id, SportsEnum sport) {
         Map<String, Object> responseMap = new HashMap();
         List<Map<String, Object>> outcomes  = new ArrayList();      
-
+        String jsonResponseString = "";
         Odds odds = new Odds();
         try {
             MockOddsResponseJson mockJson = new MockOddsResponseJson();
@@ -109,8 +108,17 @@ public class ScheduleControllerImpl implements ScheduleInterface{
 
             requestOddsUrl = handler.urlBuilder(headers);
             // TODO reconnect API for live odds  --->  String jsonResponseString = handler.executeGetUrl(requestOddsUrl).toString();
-            String jsonResponseString = mockJson.getMockResponseJson();
-            responseMap = handler.parseResponseMap(jsonResponseString);
+            if (id.equals("aeefbac96aa33824e9cc1478ae3dd33c")) {               //remove after reconnecting live odds
+                jsonResponseString = mockJson.getMockResponse1Json();     //remove after reconnecting live odds
+            }                                                              //remove after reconnecting live odds
+            if (id.equals("4a6ea91bac0ce0ad0f5088055b7d63b4")) {           //remove after reconnecting live odds
+                jsonResponseString = mockJson.getMockResponse2Json();     //remove after reconnecting live odds
+            }                                                              //remove after reconnecting live odds
+            if (id.equals("d01e947e77dac6c0546d87f60de60c34")) {           //remove after reconnecting live odds
+                jsonResponseString = mockJson.getMockResponse3Json();     //remove after reconnecting live odds
+            }                                                              //remove after reconnecting live odds
+                                                                          //remove after reconnecting live odds
+            responseMap = handler.parseResponseMap(jsonResponseString);     //remove after reconnecting live odds
 
             if (responseMap.containsKey("bookmakers")) {
                 List<Object> responseObjects = (List<Object>) responseMap.get("bookmakers");
