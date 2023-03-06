@@ -147,9 +147,6 @@ public class OddsApiHandler {
 
             if (responseMap.containsKey("bookmakers")) {
                 List<Object> responseObjects = (List<Object>) responseMap.get("bookmakers");
-                String homeTeam = (String) responseMap.get("home_team");
-                String awayTeam = (String) responseMap.get("away_team");
-
                 Map<String, Object> markets = (Map<String, Object>) responseObjects.get(0);
                 List<Object> allBetOptions = (List<Object>) markets.get("markets");
 

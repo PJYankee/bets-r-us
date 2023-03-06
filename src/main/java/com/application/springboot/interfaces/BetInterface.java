@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface BetInterface {
    
-    public Bet placeBet (String username, String eventId, String selection, Float bet_amount, BetTypeEnum bet_type, SportsEnum sport);
+    public Bet placeBet (String username, String eventId, String selection, double bet_amount, BetTypeEnum bet_type, SportsEnum sport);
     
     public List<Bet> getAllBetHistory (String username);
     

@@ -41,13 +41,14 @@ public class BankingControllerImpl implements BankingOperationInterface {
     @GetMapping("/bankroll/addFundsCreditCard")
     @ResponseBody
     @ApiOperation(value = "Allows the user to add funds to their bankroll with a valid credit card", notes = "Returns the updated Bankroll object")    
-    public Bankroll addFundsCreditCard(String userName, String cardNumber, String expiration, String cvv, Float amount) {
+    public Bankroll addFundsCreditCard(String userName, String cardNumber, String expiration, String cvv, double amount) {
         Bankroll bankroll = getBankroll(userName);
         if (checkCreditCardValid(cardNumber, expiration, cvv)) {
             Query query = new Query();
             query.addCriteria(Criteria.where("userName").is(userName));
-            Float oldBalance = bankroll.getBalance();
-            Float newBalance = Float.valueOf(decimalFormat.format(oldBalance + amount));
+            double oldBalance = bankroll.getBalance();
+            double newBalance = oldBalance + amount;
+            newBalance = Math.round(newBalance *100.0) / 100.0;            
             Update update = new Update();
             update.set("balance", newBalance);
             Bankroll updatedBankroll = mongoTemplate.findAndModify(query, update, Bankroll.class);
@@ -66,13 +67,14 @@ public class BankingControllerImpl implements BankingOperationInterface {
     @GetMapping("/bankroll/addFundsBankAccount")
     @ResponseBody
     @ApiOperation(value = "Allows the user to add funds to their bankroll with a valid bank account", notes = "Returns the updated Bankroll object")      
-    public Bankroll addFundsBankAccout(String userName, String accountNumber, String routingNumber, Float amount) {
+    public Bankroll addFundsBankAccout(String userName, String accountNumber, String routingNumber, double amount) {
         Bankroll bankroll = getBankroll(userName);
         if (checkBankAccountValid(accountNumber, routingNumber)) {
             Query query = new Query();
             query.addCriteria(Criteria.where("userName").is(userName));
-            Float oldBalance = bankroll.getBalance();
-            Float newBalance = Float.valueOf(decimalFormat.format(oldBalance + amount));
+            double oldBalance = bankroll.getBalance();
+            double newBalance = oldBalance + amount;
+            newBalance = Math.round(newBalance *100.0) / 100.0;
             Update update = new Update();
             update.set("balance", newBalance);
             Bankroll updatedBankroll = mongoTemplate.findAndModify(query, update, Bankroll.class);
@@ -82,6 +84,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
                 LOGGER.error("Cannot add funds to the account, the userName provided (" + userName + ") does not exist in the system ");
             }
             return updatedBankroll;
+            //Math.round(payout *100.0) / 100.0
         } else {
             return bankroll;
         }
@@ -91,14 +94,14 @@ public class BankingControllerImpl implements BankingOperationInterface {
     @GetMapping("/bankroll/withdrawFundsBankAccount")
     @ResponseBody
     @ApiOperation(value = "Allows the user to withdraw funds from their bankroll to an external bank account", notes = "Returns the updated Bankroll object")      
-    public Bankroll withdrawFundsBankAccount(String userName, String accountNumber, String routingNumber, Float amount) {
+    public Bankroll withdrawFundsBankAccount(String userName, String accountNumber, String routingNumber, double amount) {
         Bankroll bankroll = getBankroll(userName);
         if (checkBankAccountValid(accountNumber, routingNumber)) {
             Query query = new Query();
             query.addCriteria(Criteria.where("userName").is(userName));
-            Float oldBalance = bankroll.getBalance();
-            Float newBalance = Float.valueOf(decimalFormat.format(oldBalance - amount));
-            if (newBalance < 0.00F) {
+            double oldBalance = bankroll.getBalance();
+            double newBalance = oldBalance - amount;
+            if (newBalance < 0.00) {
                 LOGGER.error("withdraw failed, user does not have sufficient funds to withdraw");
                 return bankroll;
             } else {
@@ -121,7 +124,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
     @GetMapping("/bankroll/withdrawFundsCheck")
     @ResponseBody
     @ApiOperation(value = "Allows the user to withdraw funds from their bankroll via check by mail", notes = "Returns the updated Bankroll object")      
-    public Bankroll withdrawFundsCheck(String userName, Float amount) {
+    public Bankroll withdrawFundsCheck(String userName, double amount) {
         Bankroll bankroll = getBankroll(userName);
         
         return bankroll;
@@ -143,11 +146,6 @@ public class BankingControllerImpl implements BankingOperationInterface {
             LOGGER.error("Cannot retrieve the bankroll for this user, the userName provided (" + userName + ") does not exist in the system ");
         }
         return bankroll;
-    }
-
-    public List<Bankroll> listAllBankrolls() {
-        List<Bankroll> bankrollList = mongoTemplate.findAll(Bankroll.class);
-        return bankrollList;
     }
 
     public Boolean checkBankAccountValid(String accountNumber, String routingNumber) {
@@ -213,24 +211,23 @@ public class BankingControllerImpl implements BankingOperationInterface {
             mongoTemplate.findAllAndRemove(query, Bankroll.class, "bankrolls");
         }
     }
-    
-    @Override
-    @GetMapping("/bankroll/deductBetAmount")
-    @ResponseBody
-    @ApiIgnore
-    public Bankroll deductBetAmount(String userName, Float amount) {
-        Bankroll bankroll = getBankroll(userName);
-        //TODO deduct bet amount from account when bet placed
-        return bankroll;
-    }
 
     @Override
     @GetMapping("/bankroll/addWinningsToBank")
     @ResponseBody
     @ApiIgnore
-    public Bankroll addWinningsToBank(String userName, Float amount) {
+    public Bankroll addWinningsToBank(String userName, double amount) {
         Bankroll bankroll = getBankroll(userName);
         //TODO if block for if bet won add winnings
         return bankroll;
+    }  
+    
+    
+    @GetMapping("/bankroll/listAllBankrolls")
+    @ResponseBody
+    //@ApiIgnore
+    public List<Bankroll> listAllBankrolls() {
+        List<Bankroll> bankrollList = mongoTemplate.findAll(Bankroll.class);
+        return bankrollList;
     }    
 }

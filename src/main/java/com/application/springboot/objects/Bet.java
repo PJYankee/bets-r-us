@@ -23,9 +23,9 @@ public class Bet {
     @ApiModelProperty(required = true)
     private String eventId;
     @ApiModelProperty(required = true)  
-    private Float bet_amount;
+    private double bet_amount;
     @ApiModelProperty(required = true)  
-    private Float payout;    
+    private double payout;    
     @ApiModelProperty(required = true)    
     private BetStatusEnum status;
     @ApiModelProperty(required = true)    
@@ -66,19 +66,19 @@ public class Bet {
         this.eventId = eventId;
     }
 
-    public Float getBet_amount() {
+    public double getBet_amount() {
         return bet_amount;
     }
 
-    public void setBet_amount(Float bet_amount) {
+    public void setBet_amount(double bet_amount) {
         this.bet_amount = bet_amount;
     }
 
-    public Float getPayout() {
+    public double getPayout() {
         return payout;
     }
 
-    public void setPayout(Float payout) {
+    public void setPayout(double payout) {
         this.payout = payout;
     }
     

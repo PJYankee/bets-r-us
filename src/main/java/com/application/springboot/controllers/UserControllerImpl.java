@@ -67,7 +67,7 @@ public class UserControllerImpl implements UserOperationInterface {
         //If user is added to the DB successfully then create the user's bankroll with 0.00 balance 
         Bankroll newBankroll = new Bankroll();
         newBankroll.setUserName(userName);
-        newBankroll.setBalance(0.00F);
+        newBankroll.setBalance(0.00);
         LOGGER.info("Bankroll for user " + newUser.getUserName() + " is available for deposit");
         mongoTemplate.save(newBankroll);
     }
@@ -80,8 +80,8 @@ public class UserControllerImpl implements UserOperationInterface {
         Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(userName));
         List<User> userList = mongoTemplate.find(query, User.class, "users");
-        return userList.get(0);
-    }
+            return userList.get(0);
+        }
 
     @Override
     @PostMapping("/user/deleteUser")
@@ -154,7 +154,7 @@ public class UserControllerImpl implements UserOperationInterface {
     @Override
     @GetMapping("/user/listUsers")
     @ResponseBody
-    @ApiIgnore
+ //   @ApiIgnore
     public List<User> listUsers() {
         List<User> users = mongoTemplate.findAll(User.class);
         return users;

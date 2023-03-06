@@ -16,7 +16,7 @@ public class Bankroll {
     private String userName;
     @Indexed(unique = true)
     @ApiModelProperty(required = true)
-    private Float balance;
+    private double balance;
 
     public String getUserName() {
         return userName;
@@ -26,11 +26,11 @@ public class Bankroll {
         this.userName = userName;
     }
 
-    public Float getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(Float balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
     
