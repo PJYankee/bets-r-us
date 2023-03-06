@@ -1,0 +1,126 @@
+package com.application.springboot.objects;
+
+import com.application.springboot.system.BetStatusEnum;
+import com.application.springboot.system.BetTypeEnum;
+import com.application.springboot.system.SportsEnum;
+import io.swagger.annotations.ApiModelProperty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+/**
+ *
+ * @author "paul.perez"
+ */
+@Document(collection = "bets")
+public class Bet {
+    @Id
+    @ApiModelProperty(required = true)
+    private String date;   
+    @ApiModelProperty(required = true)
+    private String username;
+    @ApiModelProperty(required = true)
+    private String selection;
+    @ApiModelProperty(required = true)
+    private String eventId;
+    @ApiModelProperty(required = true)  
+    private Float bet_amount;
+    @ApiModelProperty(required = true)  
+    private Float payout;    
+    @ApiModelProperty(required = true)    
+    private BetStatusEnum status;
+    @ApiModelProperty(required = true)    
+    private BetTypeEnum bet_type;
+    @ApiModelProperty(required = true)    
+    private SportsEnum sport;
+    
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getSelection() {
+        return selection;
+    }
+
+    public void setSelection(String selection) {
+        this.selection = selection;
+    }
+
+    public String getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
+    }
+
+    public Float getBet_amount() {
+        return bet_amount;
+    }
+
+    public void setBet_amount(Float bet_amount) {
+        this.bet_amount = bet_amount;
+    }
+
+    public Float getPayout() {
+        return payout;
+    }
+
+    public void setPayout(Float payout) {
+        this.payout = payout;
+    }
+    
+    public BetStatusEnum getStatus() {
+        return status;
+    }
+
+    public void setStatus(BetStatusEnum status) {
+        this.status = status;
+    }
+
+    public BetTypeEnum getBet_type() {
+        return bet_type;
+    }
+
+    public void setBet_type(BetTypeEnum bet_type) {
+        this.bet_type = bet_type;
+    }
+
+    public SportsEnum getSport() {
+        return sport;
+    }
+
+    public void setSport(SportsEnum sport) {
+        this.sport = sport;
+    }
+    
+
+
+
+    @Override
+    public String toString() {
+        return "Bet{"
+                + "  userName = " + username + " "
+                + "  date = " + date + " "                
+                + ", eventId=" + eventId + " "
+                + "  selection = " + selection + " "                
+                + ", bet_amount=" + bet_amount + " "
+                + ", payout=" + payout + " "                
+                + ", status=" + status + " "
+                + ", bet_type=" + bet_type + " "
+                + ", sport=" + sport + " "                
+                + "}";
+    }     
+}

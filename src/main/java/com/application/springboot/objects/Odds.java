@@ -1,16 +1,17 @@
 package com.application.springboot.objects;
 
-
 import java.util.List;
 import java.util.Map;
+
 /**
  *
  * @author "paul.perez"
  */
 public class Odds {
+
     List<Map<String, Object>> moneylines;
-        List<Map<String, Object>> spreads;
-            List<Map<String, Object>> over_under;
+    List<Map<String, Object>> spreads;
+    List<Map<String, Object>> over_under;
 
     public List<Map<String, Object>> getMoneylines() {
         return moneylines;
@@ -35,13 +36,13 @@ public class Odds {
     public void setOver_under(List<Map<String, Object>> over_under) {
         this.over_under = over_under;
     }
+
     @Override
     public String toString() {
         return "Odds{"
-                + ", moneylines = " + moneylines 
+                + ", moneylines = " + moneylines
                 + ", spreads = " + spreads + " "
                 + ", over_under = " + over_under + " "
-           
                 + '}';
     }
 

@@ -1,5 +1,6 @@
 package com.application.springboot;
 
+import com.application.springboot.system.BetCrawler;
 import com.application.springboot.system.OddsApiHandler;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -14,6 +15,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.mongodb.core.index.Index;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  *
@@ -21,12 +23,12 @@ import org.springframework.data.mongodb.core.index.Index;
  */
 @SpringBootApplication
 @EnableSwagger2
+@EnableScheduling
 public class Application {
 
     @Value("${application.hostname}") private String hostname; 
     @Value("${apikey}") private String apikey;
     @Value("${baseurl}") private String baseurl;
-
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args); 
@@ -59,6 +61,5 @@ public class Application {
     
         return handler;
     }
-    
-
+  
 }

@@ -1,1 +1,21 @@
-.gitkeep
+.gitkeep[INFO ] 2023-03-06 10:12:02.859 [main] ApplicationTests - Starting ApplicationTests using Java 14.0.1 on DESKTOP-COMP9CH with PID 6968 (started by pc in E:\Dev\bets-r-us)
+[INFO ] 2023-03-06 10:12:02.883 [main] ApplicationTests - No active profile set, falling back to default profiles: default
+[INFO ] 2023-03-06 10:12:04.038 [main] RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+[INFO ] 2023-03-06 10:12:04.058 [main] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 0 MongoDB repository interfaces.
+[INFO ] 2023-03-06 10:12:05.567 [main] MongodExecutable - start MongodConfig{version=Version{3.5.5}, timeout=de.flapdoodle.embed.mongo.config.Timeout@fbe70d8, net=de.flapdoodle.embed.mongo.config.Net@64021427, cmdOptions=MongoCmdOptions{syncDelay=0, useDefaultSyncDelay=false, isVerbose=false, useNoPrealloc=true, useSmallFiles=true, useNoJournal=true, enableTextSearch=false, auth=false, master=false}, password=, userName=, replication=de.flapdoodle.embed.mongo.config.Storage@7d2c345d, isConfigServer=false, isShardServer=false, processListener=de.flapdoodle.embed.mongo.config.processlistener.NoopProcessListener@217dc48e, params={}, args={}, pidFile=mongod.pid, supportConfig=de.flapdoodle.embed.mongo.config.SupportConfig@5db948c9}
+[INFO ] 2023-03-06 10:12:05.630 [main] cluster - Cluster created with settings {hosts=[bets-r-us:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+[INFO ] 2023-03-06 10:12:05.716 [cluster-ClusterId{value='640602c554cd8102de508492', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:1, serverValue:272}] to bets-r-us:27017
+[INFO ] 2023-03-06 10:12:05.716 [cluster-rtt-ClusterId{value='640602c554cd8102de508492', description='null'}-bets-r-us:27017] connection - Opened connection [connectionId{localValue:2, serverValue:271}] to bets-r-us:27017
+[INFO ] 2023-03-06 10:12:05.717 [cluster-ClusterId{value='640602c554cd8102de508492', description='null'}-bets-r-us:27017] cluster - Monitor thread successfully connected to server with description ServerDescription{address=bets-r-us:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=40291200}
+[INFO ] 2023-03-06 10:12:05.852 [main] connection - Opened connection [connectionId{localValue:3, serverValue:273}] to bets-r-us:27017
+[INFO ] 2023-03-06 10:12:06.791 [main] PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+[INFO ] 2023-03-06 10:12:07.719 [main] DocumentationPluginsBootstrapper - Context refreshed
+[INFO ] 2023-03-06 10:12:07.737 [main] DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+[INFO ] 2023-03-06 10:12:07.766 [main] ApiListingReferenceScanner - Scanning for api listing references
+[WARN ] 2023-03-06 10:12:07.941 [main] ParameterDataTypeReader - Trying to infer dataType com.application.springboot.system.BetTypeEnum
+[WARN ] 2023-03-06 10:12:07.942 [main] ParameterDataTypeReader - Trying to infer dataType com.application.springboot.system.SportsEnum
+[WARN ] 2023-03-06 10:12:07.954 [main] ParameterDataTypeReader - Trying to infer dataType com.application.springboot.system.SportsEnum
+[WARN ] 2023-03-06 10:12:07.960 [main] ParameterDataTypeReader - Trying to infer dataType com.application.springboot.system.SportsEnum
+[WARN ] 2023-03-06 10:12:07.965 [main] ParameterDataTypeReader - Trying to infer dataType com.application.springboot.system.SportsEnum
+[INFO ] 2023-03-06 10:12:08.045 [main] ApplicationTests - Started ApplicationTests in 5.519 seconds (JVM running for 6.953)
+[INFO ] 2023-03-06 10:12:08.574 [SpringApplicationShutdownHook] connection - Closed connection [connectionId{localValue:3, serverValue:273}] to bets-r-us:27017 because the pool has been closed.

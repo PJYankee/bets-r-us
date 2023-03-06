@@ -1,11 +1,15 @@
 package com.application.springboot.system;
 
+import com.application.springboot.mockdata.MockOddsResponseJson;
+import com.application.springboot.objects.Odds;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.logging.log4j.LogManager;
@@ -108,7 +112,72 @@ public class OddsApiHandler {
                 break;
         }
         return sportKey;
-    }        
+    } 
+    
+ public Odds getOdds(String id, SportsEnum sport) {
+        Map<String, Object> responseMap = new HashMap();
+        List<Map<String, Object>> outcomes  = new ArrayList();
+        URL requestOddsUrl;          
+        String jsonResponseString = "";
+        Odds odds = new Odds();
+        try {
+            MockOddsResponseJson mockJson = new MockOddsResponseJson();
+            String op = getSportKey(sport) + "/events/" + id + "/odds";
+            Map<String, String> headers = new HashMap();
+            headers.put("operation", op);
+            headers.put("regions", "us");
+            headers.put("markets", "h2h%2Cspreads%2Ctotals");
+            headers.put("dateFormat", "iso");
+            headers.put("oddsFormat", "american");
+            headers.put("bookmakers", "draftkings");
+
+            requestOddsUrl = urlBuilder(headers);
+            // TODO reconnect API for live odds  --->  String jsonResponseString = handler.executeGetUrl(requestOddsUrl).toString();
+            if (id.equals("aeefbac96aa33824e9cc1478ae3dd33c")) {               //remove after reconnecting live odds
+                jsonResponseString = mockJson.getMockResponse1Json();     //remove after reconnecting live odds
+            }                                                              //remove after reconnecting live odds
+            if (id.equals("4a6ea91bac0ce0ad0f5088055b7d63b4")) {           //remove after reconnecting live odds
+                jsonResponseString = mockJson.getMockResponse2Json();     //remove after reconnecting live odds
+            }                                                              //remove after reconnecting live odds
+            if (id.equals("d01e947e77dac6c0546d87f60de60c34")) {           //remove after reconnecting live odds
+                jsonResponseString = mockJson.getMockResponse3Json();     //remove after reconnecting live odds
+            }                                                              //remove after reconnecting live odds
+                                                                          //remove after reconnecting live odds
+            responseMap = parseResponseMap(jsonResponseString);     //remove after reconnecting live odds
+
+            if (responseMap.containsKey("bookmakers")) {
+                List<Object> responseObjects = (List<Object>) responseMap.get("bookmakers");
+                String homeTeam = (String) responseMap.get("home_team");
+                String awayTeam = (String) responseMap.get("away_team");
+
+                Map<String, Object> markets = (Map<String, Object>) responseObjects.get(0);
+                List<Object> allBetOptions = (List<Object>) markets.get("markets");
+
+                for (Object betOption : allBetOptions) {
+                    Map<String, Object> option = (Map<String, Object>) betOption;
+
+                    switch ((String) option.get("key")) {
+                        case "h2h":
+                            odds.setMoneylines((List<Map<String, Object>>) option.get("outcomes"));
+                            break;
+                        case "spreads":
+                            odds.setSpreads((List<Map<String, Object>>) option.get("outcomes"));
+                            break;
+                        case "totals":
+                            odds.setOver_under((List<Map<String, Object>>) option.get("outcomes"));
+                            break;
+                        default:
+                            LOGGER.error("unable to get odds for contest");
+                            break;
+                    }
+                }
+            }
+            
+        } catch (Exception ex) {
+           LOGGER.error("Error retrieving odds for contest " + id, ex);
+        }
+        return odds;
+    }    
 
     public Map<String, Object> parseResponseMap(String json) {
 

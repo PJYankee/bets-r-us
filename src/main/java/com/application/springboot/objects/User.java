@@ -28,9 +28,6 @@ public class User {
     private String zip_code;
     @ApiModelProperty(required = true)
 
-    
-    //adding comment to test pull requests
-    
     @Override
     public String toString() {
         return "User{"
