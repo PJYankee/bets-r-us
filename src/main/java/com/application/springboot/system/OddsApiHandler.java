@@ -133,13 +133,13 @@ public class OddsApiHandler {
 
             requestOddsUrl = urlBuilder(headers);
             // TODO reconnect API for live odds  --->  String jsonResponseString = handler.executeGetUrl(requestOddsUrl).toString();
-            if (id.equals("aeefbac96aa33824e9cc1478ae3dd33c")) {               //remove after reconnecting live odds
+            if (id.equals("4bcb2b0c4aa47e9864bcd67a59a0aee0")) {               //remove after reconnecting live odds
                 jsonResponseString = mockJson.getMockResponse1Json();     //remove after reconnecting live odds
             }                                                              //remove after reconnecting live odds
-            if (id.equals("4a6ea91bac0ce0ad0f5088055b7d63b4")) {           //remove after reconnecting live odds
+            if (id.equals("9509ff652bfd7e3a1caacdf27d8cc8b3")) {           //remove after reconnecting live odds
                 jsonResponseString = mockJson.getMockResponse2Json();     //remove after reconnecting live odds
             }                                                              //remove after reconnecting live odds
-            if (id.equals("d01e947e77dac6c0546d87f60de60c34")) {           //remove after reconnecting live odds
+            if (id.equals("95ebf8e413c3f3f7fccd44a48b181a7c")) {           //remove after reconnecting live odds
                 jsonResponseString = mockJson.getMockResponse3Json();     //remove after reconnecting live odds
             }                                                              //remove after reconnecting live odds
                                                                           //remove after reconnecting live odds

@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.TimeZone;
 import com.application.springboot.interfaces.ScoresInterface;
+import com.application.springboot.mockdata.MockFinalScoresJson;
+import com.application.springboot.mockdata.MockInProgressScoresResponseJson;
 import io.swagger.annotations.ApiOperation;
 
 /**
@@ -46,19 +48,20 @@ public class ScoresControllerImpl implements ScoresInterface{
        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
        sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
        List<Object> responseList= new ArrayList();
-       List<Object> liveScoreList= new ArrayList();       
-       
-        try {
+       List<Object> liveScoreList= new ArrayList();   
+       String jsonResponseString = "";
 
+        try {
+            MockInProgressScoresResponseJson mockJson = new MockInProgressScoresResponseJson();
             String op = handler.getSportKey(sport) + "/scores";
             Map<String, String> headers = new HashMap();
             headers.put("operation", op);
 
             requestUrl = handler.urlBuilder(headers);
-            String jsonResponseString = handler.executeGetUrl(requestUrl).toString();
-            
+           // TODO reconnect to API to enable live scoring String jsonResponseString = handler.executeGetUrl(requestUrl).toString();
+            jsonResponseString = mockJson.getMockInProgressJson();
             responseList = handler.parseResponseList(jsonResponseString);
-            
+
             for (Object game : responseList){
                 LinkedHashMap<String, Object> gameMap = (LinkedHashMap) game;
                 
@@ -88,15 +91,17 @@ public class ScoresControllerImpl implements ScoresInterface{
     public List<Object> getFinalScores(SportsEnum sport) {
        List<Object> responseList= new ArrayList();
        List<Object> finalScores= new ArrayList();  
+       String jsonResponseString = "";       
          try {
-
+            MockFinalScoresJson mockJson = new MockFinalScoresJson();
+            jsonResponseString = mockJson.getFinalScoresJson();
             String op = handler.getSportKey(sport) + "/scores";
             Map<String, String> headers = new HashMap();
             headers.put("operation", op);
             headers.put("daysFrom", "1");
 
             requestUrl = handler.urlBuilder(headers);
-            String jsonResponseString = handler.executeGetUrl(requestUrl).toString();
+            //TODO reconnect to odds-api for live scoring    String jsonResponseString = handler.executeGetUrl(requestUrl).toString();
             
             responseList = handler.parseResponseList(jsonResponseString);
             

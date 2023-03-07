@@ -4,9 +4,9 @@ package com.application.springboot.mockdata;
  *
  * @author "paul.perez"
  */
-public class MockUpcomingGamesJson {
+public class MockInProgressScoresResponseJson {
     
-    String mockUpcomingJson = "[\n" +
+    String mockInProgressJson = "[\n" +
 "  {\n" +
 "    \"id\": \"4bcb2b0c4aa47e9864bcd67a59a0aee0\",\n" +
 "    \"sport_key\": \"icehockey_nhl\",\n" +
@@ -15,19 +15,37 @@ public class MockUpcomingGamesJson {
 "    \"completed\": false,\n" +
 "    \"home_team\": \"Buffalo Sabres\",\n" +
 "    \"away_team\": \"Edmonton Oilers\",\n" +
-"    \"scores\": null,\n" +
-"    \"last_update\": null\n" +
+"    \"scores\": [\n" +
+"      {\n" +
+"        \"name\": \"Buffalo Sabres\",\n" +
+"        \"score\": \"0\"\n" +
+"      },\n" +
+"      {\n" +
+"        \"name\": \"Edmonton Oilers\",\n" +
+"        \"score\": \"0\"\n" +
+"      }\n" +
+"    ],\n" +
+"    \"last_update\": \"2023-03-07T00:44:06Z\"\n" +
 "  },\n" +
 "  {\n" +
 "    \"id\": \"9509ff652bfd7e3a1caacdf27d8cc8b3\",\n" +
 "    \"sport_key\": \"icehockey_nhl\",\n" +
 "    \"sport_title\": \"NHL\",\n" +
-"    \"commence_time\": \"2023-03-07T00:38:00Z\",\n" +
+"    \"commence_time\": \"2023-03-07T00:40:00Z\",\n" +
 "    \"completed\": false,\n" +
 "    \"home_team\": \"Winnipeg Jets\",\n" +
 "    \"away_team\": \"San Jose Sharks\",\n" +
-"    \"scores\": null,\n" +
-"    \"last_update\": null\n" +
+"    \"scores\": [\n" +
+"      {\n" +
+"        \"name\": \"Winnipeg Jets\",\n" +
+"        \"score\": \"0\"\n" +
+"      },\n" +
+"      {\n" +
+"        \"name\": \"San Jose Sharks\",\n" +
+"        \"score\": \"0\"\n" +
+"      }\n" +
+"    ],\n" +
+"    \"last_update\": \"2023-03-07T00:44:06Z\"\n" +
 "  },\n" +
 "  {\n" +
 "    \"id\": \"95ebf8e413c3f3f7fccd44a48b181a7c\",\n" +
@@ -40,10 +58,10 @@ public class MockUpcomingGamesJson {
 "    \"scores\": null,\n" +
 "    \"last_update\": null\n" +
 "  }\n" +
-"]  ";
+"]";
     
-    
-    public String getMockUpcomingJson() {
-        return mockUpcomingJson;
-    }
+    public String getMockInProgressJson() {
+        return mockInProgressJson;
+    }    
+
 }
