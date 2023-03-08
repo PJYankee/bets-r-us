@@ -22,7 +22,6 @@ import com.application.springboot.interfaces.ScoresInterface;
 import com.application.springboot.mockdata.MockFinalScoresJson;
 import com.application.springboot.mockdata.MockInProgressScoresResponseJson;
 import io.swagger.annotations.ApiOperation;
-
 /**
  *
  * @author "paul.perez"
@@ -37,7 +36,6 @@ public class ScoresControllerImpl implements ScoresInterface{
     public void setRequestHandler(OddsApiHandler requestHandler) {
         this.handler = requestHandler;
     }
-    
     URL requestUrl;
 
     @Override
@@ -45,11 +43,11 @@ public class ScoresControllerImpl implements ScoresInterface{
     @ApiOperation(value = "Shows a list of scores for all active games by sport", notes = "Returns a list of score objects")    
     @ResponseBody
     public List<Object> getLiveScores(SportsEnum sport) {
-       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-       sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-       List<Object> responseList= new ArrayList();
-       List<Object> liveScoreList= new ArrayList();   
-       String jsonResponseString = "";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+        List<Object> responseList = new ArrayList();
+        List<Object> liveScoreList = new ArrayList();
+        String jsonResponseString = "";
 
         try {
             MockInProgressScoresResponseJson mockJson = new MockInProgressScoresResponseJson();
@@ -58,29 +56,29 @@ public class ScoresControllerImpl implements ScoresInterface{
             headers.put("operation", op);
 
             requestUrl = handler.urlBuilder(headers);
-           // TODO reconnect to API to enable live scoring String jsonResponseString = handler.executeGetUrl(requestUrl).toString();
+            // TODO reconnect to API to enable live scoring String jsonResponseString = handler.executeGetUrl(requestUrl).toString();
             jsonResponseString = mockJson.getMockInProgressJson();
             responseList = handler.parseResponseList(jsonResponseString);
 
-            for (Object game : responseList){
+            for (Object game : responseList) {
                 LinkedHashMap<String, Object> gameMap = (LinkedHashMap) game;
-                
-                if (gameMap.containsKey("commence_time") && gameMap.containsKey("completed")){
+
+                if (gameMap.containsKey("commence_time") && gameMap.containsKey("completed")) {
                     String startTime = (String) gameMap.get("commence_time");
                     Date gameStart = sdf.parse(startTime);
                     Date now = new Date();
                     Boolean isCompleted = (Boolean) gameMap.get("completed");
-                    
-                        if (gameStart.before(now) && !isCompleted ){
+
+                    if (gameStart.before(now) && !isCompleted) {
                         liveScoreList.add(game);
-                        }
+                    }
                 }
             }
 
         } catch (Exception ex) {
             LOGGER.error(ex.getMessage(), ex);
         }
-          
+
         return liveScoreList;
     }
 
@@ -99,10 +97,8 @@ public class ScoresControllerImpl implements ScoresInterface{
             Map<String, String> headers = new HashMap();
             headers.put("operation", op);
             headers.put("daysFrom", "1");
-
             requestUrl = handler.urlBuilder(headers);
             //TODO reconnect to odds-api for live scoring    String jsonResponseString = handler.executeGetUrl(requestUrl).toString();
-            
             responseList = handler.parseResponseList(jsonResponseString);
             
             for (Object game : responseList){
@@ -119,8 +115,6 @@ public class ScoresControllerImpl implements ScoresInterface{
         } catch (Exception ex) {
             LOGGER.error(ex.getMessage(), ex);
         }
-          
         return finalScores;
     }
-
 }

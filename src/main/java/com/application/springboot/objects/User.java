@@ -114,6 +114,5 @@ public class User {
     public void setUniqueUserId(String uniqueUserId) {
         this.uniqueUserId = uniqueUserId;
     }
-    
-    
+
 }

@@ -19,14 +19,12 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.web.bind.annotation.PostMapping;
 import springfox.documentation.annotations.ApiIgnore;
-
 /**
  *
  * @author "paul.perez"
  */
 @RestController
 public class UserControllerImpl implements UserOperationInterface {
-
     private static final Logger LOGGER = LogManager.getLogger(UserControllerImpl.class);
     private MongoTemplate mongoTemplate;
 
@@ -40,7 +38,7 @@ public class UserControllerImpl implements UserOperationInterface {
     @ResponseBody
     @ApiOperation(value = "Adds a user account to the system", notes = "Returns the user object")
     public void addUser(@RequestParam String userName, String firstName, String lastName, String email,
-            String streetAddress, String city, String state, String zip) throws Exception {
+        String streetAddress, String city, String state, String zip) throws Exception {
         User newUser = new User();
         newUser.setUserName(userName);
         newUser.setUniqueUserId(createUserId(userName));
@@ -81,7 +79,7 @@ public class UserControllerImpl implements UserOperationInterface {
         query.addCriteria(Criteria.where("userName").is(userName));
         List<User> userList = mongoTemplate.find(query, User.class, "users");
             return userList.get(0);
-        }
+    }
 
     @Override
     @PostMapping("/user/deleteUser")
@@ -130,7 +128,6 @@ public class UserControllerImpl implements UserOperationInterface {
             LOGGER.error("Cannot edit the user's name, the username provided (" + userName + ") does not exist in the system");
         }
         return updatedUser;
-
     }
 
     @Override

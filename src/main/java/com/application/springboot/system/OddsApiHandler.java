@@ -24,14 +24,12 @@ import org.springframework.boot.json.JsonParserFactory;
 public class OddsApiHandler {
 
     private static final Logger LOGGER = LogManager.getLogger(OddsApiHandler.class);
-
     public String apikey;
     public String baseUrl;
 
     public URL urlBuilder(Map<String, String> headers) throws MalformedURLException, Exception {
         StringBuilder urlStringBuilder = new StringBuilder();
         urlStringBuilder.append(baseUrl);
-
         if (headers.containsKey("operation")) {
             urlStringBuilder = urlStringBuilder.append(headers.get("operation")).append("?").append("apiKey=").append(apikey).append("&");
         } else {
@@ -58,16 +56,13 @@ public class OddsApiHandler {
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
             String inputLine;
-
             while ((inputLine = in.readLine()) != null) {
                 content.append(inputLine);
             }
-
             in.close();
         } catch (IOException x) {
             LOGGER.error("Error executing call to external api ", x);
         }
-
         return content;
     }
     
@@ -83,12 +78,10 @@ public class OddsApiHandler {
             while ((inputLine = in.readLine()) != null) {
                 content.append(inputLine);
             }
-
             in.close();
         } catch (IOException x) {
             LOGGER.error("Error executing call to external api ", x);
         }
-
         return content;
     }
         
@@ -152,7 +145,6 @@ public class OddsApiHandler {
 
                 for (Object betOption : allBetOptions) {
                     Map<String, Object> option = (Map<String, Object>) betOption;
-
                     switch ((String) option.get("key")) {
                         case "h2h":
                             odds.setMoneylines((List<Map<String, Object>>) option.get("outcomes"));
@@ -168,7 +160,6 @@ public class OddsApiHandler {
                     }
                 }
             }
-            
         } catch (Exception ex) {
            LOGGER.error("Error retrieving odds for contest " + id, ex);
         }
@@ -176,7 +167,6 @@ public class OddsApiHandler {
     }    
 
     public Map<String, Object> parseResponseMap(String json) {
-
         JsonParser springParser = JsonParserFactory.getJsonParser();
         Map< String, Object> responseMap = springParser.parseMap(json);
 

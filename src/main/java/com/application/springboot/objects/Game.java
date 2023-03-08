@@ -19,7 +19,6 @@ public class Game {
     private String away_team;
     private Odds odds;
 
-
     public String getId() {
         return id;
     }
@@ -59,9 +58,6 @@ public class Game {
     public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
-
-
-    
 
     @Override
     public String toString() {

@@ -3,7 +3,6 @@ package com.application.springboot.interfaces;
 import com.application.springboot.objects.User;
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestParam;
-
 /**
  *
  * @author "paul.perez"
@@ -24,5 +23,4 @@ public interface UserOperationInterface {
     public User editUserProperName(@RequestParam String userName, String firstName, String lastName);
 
     public User editUserEmail(@RequestParam String userName, String email);
-
 }

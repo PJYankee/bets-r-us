@@ -8,7 +8,6 @@ import java.util.Map;
  * @author "paul.perez"
  */
 public class Odds {
-
     List<Map<String, Object>> moneylines;
     List<Map<String, Object>> spreads;
     List<Map<String, Object>> over_under;
@@ -45,5 +44,4 @@ public class Odds {
                 + ", over_under = " + over_under + " "
                 + '}';
     }
-
 }

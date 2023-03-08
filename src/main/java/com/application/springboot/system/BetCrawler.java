@@ -78,7 +78,6 @@ public class BetCrawler {
 
                         }
                     }
-
                     break;
                 case IN_PROGRESS:
                     for (Object finalScore : finalScores) {
@@ -98,7 +97,6 @@ public class BetCrawler {
                     break;
             }
         }
-
     }
 
     private List<Bet> listAllOpenBets() {
@@ -132,7 +130,6 @@ public class BetCrawler {
 
             for (Object game : responseList) {
                 LinkedHashMap<String, Object> gameMap = (LinkedHashMap) game;
-
                 if (gameMap.containsKey("commence_time") && gameMap.containsKey("completed")) {
                     String startTime = (String) gameMap.get("commence_time");
                     Date gameStart = sdf.parse(startTime);
@@ -148,7 +145,6 @@ public class BetCrawler {
         } catch (Exception ex) {
             LOGGER.error(ex.getMessage(), ex);
         }
-
         return liveScoreList;
     }
 
@@ -166,7 +162,6 @@ public class BetCrawler {
 
             requestUrl = handler.urlBuilder(headers);
             //TODO reconnect to odds-api for live scoring    String jsonResponseString = handler.executeGetUrl(requestUrl).toString();
-
             responseList = handler.parseResponseList(jsonResponseString);
 
             for (Object game : responseList) {
@@ -296,7 +291,6 @@ public class BetCrawler {
                 break;
             default:
                 LOGGER.error("Unable to calculate payout for bet with odds " + bet.getOdds().toString());
-
         }
         return newStatus;
     }

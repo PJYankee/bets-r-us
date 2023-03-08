@@ -33,8 +33,7 @@ public class Bankroll {
     public void setBalance(double balance) {
         this.balance = balance;
     }
-    
-    
+
     @Override
     public String toString() {
         return "Bankroll{"
@@ -42,5 +41,4 @@ public class Bankroll {
                 + ", balence = " + balance
                 + '}';
     }  
-
 }
