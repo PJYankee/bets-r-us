@@ -165,7 +165,6 @@ public class OddsApiHandler {
                             break;
                         default:
                             LOGGER.error("unable to get odds for contest");
-                            break;
                     }
                 }
             }

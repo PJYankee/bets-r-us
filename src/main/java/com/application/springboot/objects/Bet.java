@@ -32,7 +32,8 @@ public class Bet {
     private BetTypeEnum bet_type;
     @ApiModelProperty(required = true)    
     private SportsEnum sport;
-    
+    @ApiModelProperty(required = true)    
+    private Odds odds;
 
     public String getUsername() {
         return username;
@@ -105,9 +106,14 @@ public class Bet {
     public void setSport(SportsEnum sport) {
         this.sport = sport;
     }
-    
 
+    public Odds getOdds() {
+        return odds;
+    }
 
+    public void setOdds(Odds odds) {
+        this.odds = odds;
+    }
 
     @Override
     public String toString() {

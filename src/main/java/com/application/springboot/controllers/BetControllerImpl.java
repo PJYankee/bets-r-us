@@ -71,6 +71,7 @@ public class BetControllerImpl implements BetInterface{
         bet.setDate(now.toString());
         bet.setPayout(calculatePayout(odds, bet_amount, bet_type, selection));
         bet.setStatus(BetStatusEnum.PLACED);
+        bet.setOdds(odds);
 
         try {
             deductBetAmountFromBankroll(username, bet_amount);
