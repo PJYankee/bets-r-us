@@ -109,7 +109,7 @@ public class BetCrawler {
                 openBets.add(bet);
             }
         }
-        return bets;
+        return openBets;
     }
 
     private List<Object> getLiveScores(SportsEnum sport) {
@@ -266,13 +266,13 @@ public class BetCrawler {
                 List<Map<String, Object>> overunders = bet.getOdds().getOver_under();
                 for (Map<String, Object> overunder : overunders) {
                     if (overunder.get("name").equals(betSelection)) {
-                        double totalPoints = homeTeamScore = awayTeamScore;
+                        double totalPoints = homeTeamScore + awayTeamScore;
                         double betPoints = (double) overunder.get("point");
                         if (betSelection.equals("Over")) {
-                            if (betPoints > totalPoints) {
+                            if (betPoints < totalPoints) {
                                 newStatus = BetStatusEnum.WIN;
                             }
-                            if (betPoints < totalPoints) {
+                            if (betPoints > totalPoints) {
                                 newStatus = BetStatusEnum.LOSS;
                             }
                             if (betPoints == totalPoints) {
@@ -281,10 +281,10 @@ public class BetCrawler {
                         }
 
                         if (betSelection.equals("Under")) {
-                            if (betPoints < totalPoints) {
+                            if (betPoints > totalPoints) {
                                 newStatus = BetStatusEnum.WIN;
                             }
-                            if (betPoints > totalPoints) {
+                            if (betPoints < totalPoints) {
                                 newStatus = BetStatusEnum.LOSS;
                             }
                             if (betPoints == totalPoints) {
@@ -311,7 +311,7 @@ public class BetCrawler {
     
     private void updateBankroll(BetStatusEnum newStatus, Bet bet){
     String username = bet.getUsername();
-    Bankroll userBankroll = getBankroll("username");
+    Bankroll userBankroll = getBankroll(bet.getUsername());
     double oldBalance = userBankroll.getBalance();
     double depositAmount = 0;
     if(newStatus == BetStatusEnum.PUSH){
@@ -320,11 +320,11 @@ public class BetCrawler {
     if(newStatus == BetStatusEnum.WIN){
     depositAmount = bet.getPayout();
     }
-    
+    depositAmount = oldBalance + depositAmount;
     Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(username));
         Update update = new Update();
-        update.set("balance", depositAmount + oldBalance);
+        update.set("balance", depositAmount);
         mongoTemplate.findAndModify(query, update, Bankroll.class);
     }
     
