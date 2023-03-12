@@ -153,7 +153,7 @@ public class UserControllerImpl implements UserOperationInterface {
     @Override
     @GetMapping("/user/listUsers")
     @ResponseBody
- //   @ApiIgnore
+    @ApiIgnore
     public List<User> listUsers() {
         List<User> users = mongoTemplate.findAll(User.class);
         return users;

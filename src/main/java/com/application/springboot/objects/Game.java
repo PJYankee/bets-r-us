@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 package com.application.springboot.objects;
 
 import org.springframework.data.annotation.Id;
@@ -61,11 +56,12 @@ public class Game {
 
     @Override
     public String toString() {
-        return "Bankroll{"
+        return "Game{"
                 + ", id = " + id + " "
                 + ", home_team = " + home_team + " "
                 + ", away_team = " + away_team + " "
                 + ", odds = " + odds + " "
+                + ", startTime = " + startTime + " "                
                 + '}';
     }  
 }

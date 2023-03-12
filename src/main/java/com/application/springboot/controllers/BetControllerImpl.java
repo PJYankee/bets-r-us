@@ -96,26 +96,50 @@ public class BetControllerImpl implements BetInterface{
     }
 
     @Override
-    @ApiOperation(value = "Retrieve a history of winning bets placed by the user", notes = "Returns a list of Bet objects")          
-    @GetMapping("/bets/getWonBetHistory") 
+    @ApiOperation(value = "Retrieve a history of winning bets placed by the user", notes = "Returns a list of Bet objects")
+    @GetMapping("/bets/getWonBetHistory")
     public List<Bet> getWonBetHistory(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        List<Bet> bets = mongoTemplate.findAll(Bet.class);
+        List<Bet> wonBets = new ArrayList();
+        //probably should query with conditions rather than get all and exclude lost bets
+        for (Bet bet : bets) {
+            if (bet.getStatus() == BetStatusEnum.WIN) {
+                wonBets.add(bet);
+            }
+        }
+        return wonBets;
     }
 
     @Override
     @ApiOperation(value = "Retrieve a history of lost bets placed by the user", notes = "Returns a list of Bet objects")          
     @GetMapping("/bets/getLostBetHistory")     
     public List<Bet> getLostBetHistory(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        List<Bet> bets = mongoTemplate.findAll(Bet.class);
+        List<Bet> lostBets = new ArrayList();
+        //probably should query with conditions rather than get all and exclude won or pushed bets
+        for (Bet bet : bets) {
+            if (bet.getStatus() == BetStatusEnum.LOSS) {
+                lostBets.add(bet);
+            }
+        }
+        return lostBets;
     }
 
     @Override
-    @ApiOperation(value = "Retrieve a List of in progress bets by user", notes = "Returns a list of Bet objects")          
-    @GetMapping("/bets/getInProgressBets")     
+    @ApiOperation(value = "Retrieve a List of in progress bets by user", notes = "Returns a list of Bet objects")
+    @GetMapping("/bets/getInProgressBets")
     public List<Bet> getInProgressBets(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        List<Bet> bets = mongoTemplate.findAll(Bet.class);
+        List<Bet> openBets = new ArrayList();
+        //probably should query with conditions rather than get all and exclude not active bets
+        for (Bet bet : bets) {
+            if (bet.getStatus() == BetStatusEnum.IN_PROGRESS || bet.getStatus() == BetStatusEnum.PLACED) {
+                openBets.add(bet);
+            }
+        }
+        return openBets;
     }
-    
+
     
     
     private double calculatePayout(Odds odds, double bet_amount, BetTypeEnum betType, String selection) {
@@ -217,7 +241,7 @@ public class BetControllerImpl implements BetInterface{
 
     @GetMapping("/bets/listAllBets")
     @ResponseBody
- //   @ApiIgnore
+    @ApiIgnore
     public List<Bet> listAllBets() {
         List<Bet> bets = mongoTemplate.findAll(Bet.class);
         return bets;
