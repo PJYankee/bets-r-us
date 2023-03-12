@@ -211,21 +211,10 @@ public class BankingControllerImpl implements BankingOperationInterface {
             mongoTemplate.findAllAndRemove(query, Bankroll.class, "bankrolls");
         }
     }
-
-    @Override
-    @GetMapping("/bankroll/addWinningsToBank")
-    @ResponseBody
-    @ApiIgnore
-    public Bankroll addWinningsToBank(String userName, double amount) {
-        Bankroll bankroll = getBankroll(userName);
-        //TODO if block for if bet won add winnings
-        return bankroll;
-    }  
-    
     
     @GetMapping("/bankroll/listAllBankrolls")
     @ResponseBody
-    //@ApiIgnore
+    @ApiIgnore
     public List<Bankroll> listAllBankrolls() {
         List<Bankroll> bankrollList = mongoTemplate.findAll(Bankroll.class);
         return bankrollList;

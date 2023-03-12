@@ -72,7 +72,7 @@ public class BetCrawler {
                         if (liveScoreMap.containsKey("id")) {
                             String id = (String) liveScoreMap.get("id");
                             if (bet.getEventId().equals(id)) {
-                                LOGGER.info("Event " + bet.getEventId() + " has started, changing status from PLACED to IN_PROGRESS");
+                                LOGGER.debug("Event " + bet.getEventId() + " has started, changing status from PLACED to IN_PROGRESS");
                                 setNewBetStatus(BetStatusEnum.IN_PROGRESS, bet);
                             }
 
@@ -85,7 +85,7 @@ public class BetCrawler {
                         if (finalScoreMap.containsKey("id")) {
                             String id = (String) finalScoreMap.get("id");
                             if (bet.getEventId().equals(id)) {
-                                LOGGER.info("Event " + bet.getEventId() + " has ended, determine bet result and set status to WIN, LOSS, or PUSH");
+                                LOGGER.debug("Event " + bet.getEventId() + " has ended, determine bet result and set status to WIN, LOSS, or PUSH");
                                 BetStatusEnum newStatus = getBetOutcome(finalScoreMap, bet);
                                 setNewBetStatus(newStatus, bet);
                                 if(newStatus.equals(BetStatusEnum.WIN ) || newStatus.equals(BetStatusEnum.PUSH )){
@@ -102,6 +102,7 @@ public class BetCrawler {
     private List<Bet> listAllOpenBets() {
         List<Bet> bets = mongoTemplate.findAll(Bet.class);
         List<Bet> openBets = new ArrayList();
+        //probably should query with conditions rather than get all and exclude not active bets
         for (Bet bet : bets) {
             if (bet.getStatus() == BetStatusEnum.IN_PROGRESS || bet.getStatus() == BetStatusEnum.PLACED) {
                 openBets.add(bet);

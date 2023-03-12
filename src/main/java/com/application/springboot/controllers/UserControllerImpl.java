@@ -87,7 +87,9 @@ public class UserControllerImpl implements UserOperationInterface {
     public void deleteUser(@RequestParam String userName) {
         Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(userName));
+        //first query to remove user from users document second query to remove bankroll from bankrolls document
         mongoTemplate.findAllAndRemove(query, User.class, "users");
+        mongoTemplate.findAllAndRemove(query, Bankroll.class, "bankrolls");
     }
 
     @Override

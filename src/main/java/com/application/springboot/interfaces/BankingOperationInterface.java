@@ -16,7 +16,5 @@ public Bankroll withdrawFundsBankAccount (@RequestParam String userName, String 
 
 public Bankroll withdrawFundsCheck (@RequestParam String userName, double amount);
 
-public Bankroll addWinningsToBank (@RequestParam String userName, double amount);
-
 public Bankroll getBankroll(String userName);
 }
