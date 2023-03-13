@@ -33,6 +33,18 @@ public class UserControllerImpl implements UserOperationInterface {
         this.mongoTemplate = mongoTemplate;
     }
 
+    /**
+     * 
+     * @param userName
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param streetAddress
+     * @param city
+     * @param state
+     * @param zip
+     * @throws Exception 
+     */
     @Override
     @PostMapping("/user/addUser")
     @ResponseBody
@@ -70,6 +82,11 @@ public class UserControllerImpl implements UserOperationInterface {
         mongoTemplate.save(newBankroll);
     }
 
+    /**
+     * 
+     * @param userName
+     * @return 
+     */
     @Override
     @GetMapping("/user/getUser")
     @ResponseBody
@@ -81,6 +98,10 @@ public class UserControllerImpl implements UserOperationInterface {
             return userList.get(0);
     }
 
+    /**
+     * 
+     * @param userName 
+     */
     @Override
     @PostMapping("/user/deleteUser")
     @ApiOperation(value = "Delete a user account from the system", notes = "Returns 200 on success")    
@@ -92,6 +113,15 @@ public class UserControllerImpl implements UserOperationInterface {
         mongoTemplate.findAllAndRemove(query, Bankroll.class, "bankrolls");
     }
 
+    /**
+     * 
+     * @param userName
+     * @param streetAddress
+     * @param city
+     * @param state
+     * @param zip
+     * @return 
+     */
     @Override
     @GetMapping("/user/editUserAddress")
     @ResponseBody
@@ -113,6 +143,13 @@ public class UserControllerImpl implements UserOperationInterface {
         return updatedUser;
     }
 
+    /**
+     * 
+     * @param userName
+     * @param firstName
+     * @param lastName
+     * @return 
+     */
     @Override
     @GetMapping("/user/editUserProperName")
     @ResponseBody
@@ -132,6 +169,12 @@ public class UserControllerImpl implements UserOperationInterface {
         return updatedUser;
     }
 
+    /**
+     * 
+     * @param userName
+     * @param email
+     * @return 
+     */
     @Override
     @GetMapping("/user/editUserEmail")
     @ResponseBody
@@ -150,6 +193,7 @@ public class UserControllerImpl implements UserOperationInterface {
         return updatedUser;
     }
 
+     /* Do not expose the following endpoints to the end user */
     @Override
     @GetMapping("/user/listUsers")
     @ResponseBody
@@ -159,7 +203,6 @@ public class UserControllerImpl implements UserOperationInterface {
         return users;
     }
 
-    /* Do not expose the following endpoints to the end user */
     @ApiIgnore
     @GetMapping("/user/deleteAllUsers")
     public void deleteAllUsers() {

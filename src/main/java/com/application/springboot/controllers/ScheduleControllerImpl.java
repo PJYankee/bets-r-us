@@ -37,7 +37,12 @@ public class ScheduleControllerImpl implements ScheduleInterface{
     public void setOddsApiHandler(OddsApiHandler oddsApiHandler) {
         this.handler = oddsApiHandler;
     }    
-    
+   
+    /**
+     * 
+     * @param sport
+     * @return 
+     */
     @Override
     @GetMapping("/schedule/getAllUpcomingGames")
     @ResponseBody

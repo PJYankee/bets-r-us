@@ -37,6 +37,15 @@ public class BankingControllerImpl implements BankingOperationInterface {
         this.mongoTemplate = mongoTemplate;
     }
 
+    /**
+     * 
+     * @param userName
+     * @param cardNumber
+     * @param expiration
+     * @param cvv
+     * @param amount
+     * @return 
+     */
     @Override
     @GetMapping("/bankroll/addFundsCreditCard")
     @ResponseBody
@@ -63,6 +72,14 @@ public class BankingControllerImpl implements BankingOperationInterface {
         }
     }
 
+    /**
+     * 
+     * @param userName
+     * @param accountNumber
+     * @param routingNumber
+     * @param amount
+     * @return 
+     */
     @Override
     @GetMapping("/bankroll/addFundsBankAccount")
     @ResponseBody
@@ -90,6 +107,14 @@ public class BankingControllerImpl implements BankingOperationInterface {
         }
     }
 
+    /**
+     * 
+     * @param userName
+     * @param accountNumber
+     * @param routingNumber
+     * @param amount
+     * @return 
+     */
     @Override
     @GetMapping("/bankroll/withdrawFundsBankAccount")
     @ResponseBody
@@ -120,6 +145,12 @@ public class BankingControllerImpl implements BankingOperationInterface {
         }
     }
 
+    /**
+     * 
+     * @param userName
+     * @param amount
+     * @return 
+     */
     @Override
     @GetMapping("/bankroll/withdrawFundsCheck")
     @ResponseBody
@@ -130,6 +161,11 @@ public class BankingControllerImpl implements BankingOperationInterface {
         return bankroll;
     }
 
+    /**
+     * 
+     * @param userName
+     * @return 
+     */
     @Override
     @GetMapping("/bankroll/getBankroll")
     @ResponseBody
@@ -148,6 +184,12 @@ public class BankingControllerImpl implements BankingOperationInterface {
         return bankroll;
     }
 
+    /**
+     * 
+     * @param accountNumber
+     * @param routingNumber
+     * @return 
+     */
     public Boolean checkBankAccountValid(String accountNumber, String routingNumber) {
         Boolean isValid = true;
         if (accountNumber == null || routingNumber == null) {
@@ -157,6 +199,13 @@ public class BankingControllerImpl implements BankingOperationInterface {
         return isValid;
     }
 
+    /**
+     * 
+     * @param cardNumber
+     * @param expiration
+     * @param CVV
+     * @return 
+     */
     public Boolean checkCreditCardValid(String cardNumber, String expiration, String CVV) {
         Boolean isValid = true;
         if (cardNumber == null || expiration == null || CVV == null) {
@@ -174,6 +223,11 @@ public class BankingControllerImpl implements BankingOperationInterface {
         return isValid;
     }
 
+    /**
+     * 
+     * @param cardNumber
+     * @return 
+     */
     public Boolean cardNumberValid(String cardNumber) {
         Boolean isValid = false;
         if (cardNumber.length() == 15 && cardNumber.startsWith("3")) {
@@ -185,6 +239,11 @@ public class BankingControllerImpl implements BankingOperationInterface {
         return isValid;
     }
 
+    /**
+     * 
+     * @param expiration
+     * @return 
+     */
     public Boolean expirationValid(String expiration) {
         Date expirationDate = null;
         String pattern = "MMyy";

@@ -47,6 +47,16 @@ public class BetControllerImpl implements BetInterface{
         this.handler = oddsApiHandler;
     }    
 
+    /**
+     *
+     * @param username
+     * @param eventId
+     * @param selection
+     * @param bet_amount
+     * @param bet_type
+     * @param sport
+     * @return Bet
+     */
     @Override
     @ApiOperation(value = "Place a bet on a game", notes = "Returns a Bet object")
     @GetMapping("/bets/placeBet")
@@ -84,6 +94,11 @@ public class BetControllerImpl implements BetInterface{
         return bet;
     }
 
+    /**
+     *
+     * @param username
+     * @return
+     */
     @Override
     @ApiOperation(value = "Retrieve a history of all bets placed by the user", notes = "Returns a list of Bet objects")          
     @GetMapping("/bets/getAllBetHistory")    
@@ -95,6 +110,11 @@ public class BetControllerImpl implements BetInterface{
         return betList;
     }
 
+    /**
+     *
+     * @param username
+     * @return
+     */
     @Override
     @ApiOperation(value = "Retrieve a history of winning bets placed by the user", notes = "Returns a list of Bet objects")
     @GetMapping("/bets/getWonBetHistory")
@@ -110,6 +130,11 @@ public class BetControllerImpl implements BetInterface{
         return wonBets;
     }
 
+    /**
+     * 
+     * @param username
+     * @return 
+     */
     @Override
     @ApiOperation(value = "Retrieve a history of lost bets placed by the user", notes = "Returns a list of Bet objects")          
     @GetMapping("/bets/getLostBetHistory")     
@@ -125,6 +150,11 @@ public class BetControllerImpl implements BetInterface{
         return lostBets;
     }
 
+    /**
+     * 
+     * @param username
+     * @return 
+     */
     @Override
     @ApiOperation(value = "Retrieve a List of in progress bets by user", notes = "Returns a list of Bet objects")
     @GetMapping("/bets/getInProgressBets")
@@ -141,7 +171,14 @@ public class BetControllerImpl implements BetInterface{
     }
 
     
-    
+    /**
+     * 
+     * @param odds
+     * @param bet_amount
+     * @param betType
+     * @param selection
+     * @return 
+     */
     private double calculatePayout(Odds odds, double bet_amount, BetTypeEnum betType, String selection) {
         double payout = bet_amount;
         int priceInt = 0;
@@ -188,6 +225,12 @@ public class BetControllerImpl implements BetInterface{
     return Math.round(payout *100.0) / 100.0;
     }
     
+    /**
+     * 
+     * @param userName
+     * @param amount
+     * @throws Exception 
+     */
     public void deductBetAmountFromBankroll(String userName, double amount) throws Exception {
         Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(userName));
@@ -202,6 +245,11 @@ public class BetControllerImpl implements BetInterface{
         mongoTemplate.findAndModify(query, update, Bankroll.class);
     }
 
+    /**
+     * 
+     * @param userName
+     * @return 
+     */
     public Bankroll getBankroll(String userName) {
         List<Bankroll> bankrollList = new ArrayList();
         Bankroll bankroll = new Bankroll();
@@ -216,6 +264,11 @@ public class BetControllerImpl implements BetInterface{
         return bankroll;
     }
 
+    /**
+     * 
+     * @param userName
+     * @return 
+     */
     public User getUser(@RequestParam String userName) {
         Query query = new Query();
         query.addCriteria(Criteria.where("userName").is(userName));
@@ -226,6 +279,7 @@ public class BetControllerImpl implements BetInterface{
             return userList.get(0);
         }
     }
+    
     
         /* Do not expose the following endpoints to the end user */
     @ApiIgnore

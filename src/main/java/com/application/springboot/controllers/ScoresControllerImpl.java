@@ -38,6 +38,11 @@ public class ScoresControllerImpl implements ScoresInterface{
     }
     URL requestUrl;
 
+    /**
+     * 
+     * @param sport
+     * @return 
+     */
     @Override
     @GetMapping("/scores/getLiveScores")
     @ApiOperation(value = "Shows a list of scores for all active games by sport", notes = "Returns a list of score objects")    
@@ -82,6 +87,11 @@ public class ScoresControllerImpl implements ScoresInterface{
         return liveScoreList;
     }
 
+    /**
+     * 
+     * @param sport
+     * @return 
+     */
     @Override
     @GetMapping("/scores/getFinalScores")
     @ResponseBody

@@ -111,6 +111,11 @@ public class BetCrawler {
         return openBets;
     }
 
+    /**
+     * 
+     * @param sport
+     * @return 
+     */
     private List<Object> getLiveScores(SportsEnum sport) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
@@ -149,6 +154,11 @@ public class BetCrawler {
         return liveScoreList;
     }
 
+    /**
+     * 
+     * @param sport
+     * @return 
+     */
     private List<Object> getFinalScores(SportsEnum sport) {
         List<Object> responseList = new ArrayList();
         List<Object> finalScores = new ArrayList();
@@ -183,6 +193,12 @@ public class BetCrawler {
         return finalScores;
     }
 
+    /**
+     * 
+     * @param finalScoreMap
+     * @param bet
+     * @return 
+     */
     private BetStatusEnum getBetOutcome(Map<String, Object> finalScoreMap, Bet bet) {
         String homeTeam = (String) finalScoreMap.get("home_team");
         String awayTeam = (String) finalScoreMap.get("away_team");
@@ -296,6 +312,11 @@ public class BetCrawler {
         return newStatus;
     }
 
+    /**
+     * 
+     * @param newStatus
+     * @param bet 
+     */
     private void setNewBetStatus(BetStatusEnum newStatus, Bet bet) {
         Query query = new Query();
         query.addCriteria(Criteria.where("date").is(bet.getDate()));
@@ -304,6 +325,11 @@ public class BetCrawler {
         mongoTemplate.findAndModify(query, update, Bet.class);
     }
     
+    /**
+     * 
+     * @param newStatus
+     * @param bet 
+     */
     private void updateBankroll(BetStatusEnum newStatus, Bet bet){
     String username = bet.getUsername();
     Bankroll userBankroll = getBankroll(bet.getUsername());
@@ -323,6 +349,11 @@ public class BetCrawler {
         mongoTemplate.findAndModify(query, update, Bankroll.class);
     }
     
+    /**
+     * 
+     * @param userName
+     * @return 
+     */
     public Bankroll getBankroll(String userName) {
         List<Bankroll> bankrollList = new ArrayList();
         Bankroll bankroll = new Bankroll();
