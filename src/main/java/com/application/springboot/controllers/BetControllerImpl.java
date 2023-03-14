@@ -88,7 +88,7 @@ public class BetControllerImpl implements BetInterface{
             LOGGER.debug("User " + username + "successfully placed bet on " + selection);
             mongoTemplate.save(bet);
         } catch (Exception ex) {
-            LOGGER.error("NO BET PLACED : INSUFFICIENT BANKROLL FUNDS");
+            LOGGER.error("NO BET PLACED : INSUFFICIENT BANKROLL FUNDS", ex);
             return noBet;
         }
         return bet;

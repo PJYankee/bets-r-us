@@ -95,7 +95,7 @@ public class ScoresControllerImpl implements ScoresInterface{
     @Override
     @GetMapping("/scores/getFinalScores")
     @ResponseBody
-    @ApiOperation(value = "Shows a list of scores for all completed games by sport", notes = "Returns a list of score objects")    
+    @ApiOperation(value = "Shows a list of scores for all completed games by sport", notes = "Returns a list of game objects")    
     public List<Object> getFinalScores(SportsEnum sport) {
        List<Object> responseList= new ArrayList();
        List<Object> finalScores= new ArrayList();  
