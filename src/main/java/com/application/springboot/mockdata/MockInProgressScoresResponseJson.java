@@ -18,11 +18,11 @@ public class MockInProgressScoresResponseJson {
 "    \"scores\": [\n" +
 "      {\n" +
 "        \"name\": \"Buffalo Sabres\",\n" +
-"        \"score\": \"0\"\n" +
+"        \"score\": \"1\"\n" +
 "      },\n" +
 "      {\n" +
 "        \"name\": \"Edmonton Oilers\",\n" +
-"        \"score\": \"0\"\n" +
+"        \"score\": \"2\"\n" +
 "      }\n" +
 "    ],\n" +
 "    \"last_update\": \"2023-03-07T00:44:06Z\"\n" +
@@ -42,7 +42,7 @@ public class MockInProgressScoresResponseJson {
 "      },\n" +
 "      {\n" +
 "        \"name\": \"San Jose Sharks\",\n" +
-"        \"score\": \"0\"\n" +
+"        \"score\": \"1\"\n" +
 "      }\n" +
 "    ],\n" +
 "    \"last_update\": \"2023-03-07T00:44:06Z\"\n" +
@@ -55,7 +55,16 @@ public class MockInProgressScoresResponseJson {
 "    \"completed\": false,\n" +
 "    \"home_team\": \"Dallas Stars\",\n" +
 "    \"away_team\": \"Calgary Flames\",\n" +
-"    \"scores\": null,\n" +
+"    \"scores\": [\n" +
+"      {\n" +
+"        \"name\": \"Dallas Stars\",\n" +
+"        \"score\": \"2\"\n" +
+"      },\n" +
+"      {\n" +
+"        \"name\": \"Calgary Flames\",\n" +
+"        \"score\": \"1\"\n" +
+"      }\n" +
+"    ],\n" +
 "    \"last_update\": null\n" +
 "  }\n" +
 "]";

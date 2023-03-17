@@ -105,7 +105,7 @@ public class BetControllerImpl implements BetInterface{
     public List<Bet> getAllBetHistory(String username) {
         Query query = new Query();
         query.addCriteria(Criteria.where("username").is(username));        
-        List<Bet> betList = mongoTemplate.findAll(Bet.class);
+        List<Bet> betList = mongoTemplate.find(query, Bet.class, "bets");
         
         return betList;
     }
@@ -119,7 +119,9 @@ public class BetControllerImpl implements BetInterface{
     @ApiOperation(value = "Retrieve a history of winning bets placed by the user", notes = "Returns a list of Bet objects")
     @GetMapping("/bets/getWonBetHistory")
     public List<Bet> getWonBetHistory(String username) {
-        List<Bet> bets = mongoTemplate.findAll(Bet.class);
+        Query query = new Query();
+        query.addCriteria(Criteria.where("username").is(username));    
+        List<Bet> bets = mongoTemplate.find(query, Bet.class, "bets");
         List<Bet> wonBets = new ArrayList();
         //probably should query with conditions rather than get all and exclude lost bets
         for (Bet bet : bets) {
@@ -139,7 +141,9 @@ public class BetControllerImpl implements BetInterface{
     @ApiOperation(value = "Retrieve a history of lost bets placed by the user", notes = "Returns a list of Bet objects")          
     @GetMapping("/bets/getLostBetHistory")     
     public List<Bet> getLostBetHistory(String username) {
-        List<Bet> bets = mongoTemplate.findAll(Bet.class);
+        Query query = new Query();
+        query.addCriteria(Criteria.where("username").is(username));    
+        List<Bet> bets = mongoTemplate.find(query, Bet.class, "bets");
         List<Bet> lostBets = new ArrayList();
         //probably should query with conditions rather than get all and exclude won or pushed bets
         for (Bet bet : bets) {
@@ -159,7 +163,9 @@ public class BetControllerImpl implements BetInterface{
     @ApiOperation(value = "Retrieve a List of in progress bets by user", notes = "Returns a list of Bet objects")
     @GetMapping("/bets/getInProgressBets")
     public List<Bet> getInProgressBets(String username) {
-        List<Bet> bets = mongoTemplate.findAll(Bet.class);
+        Query query = new Query();
+        query.addCriteria(Criteria.where("username").is(username));            
+        List<Bet> bets = mongoTemplate.find(query, Bet.class, "bets");
         List<Bet> openBets = new ArrayList();
         //probably should query with conditions rather than get all and exclude not active bets
         for (Bet bet : bets) {
