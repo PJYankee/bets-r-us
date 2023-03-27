@@ -175,8 +175,8 @@ public class OddsApiHandler {
 
     public List<Object> parseResponseList(String json) {
         JsonParser springParser = JsonParserFactory.getJsonParser();
-        List<Object> responseMap = springParser.parseList(json);
+        List<Object> responseList = springParser.parseList(json);
 
-        return responseMap;
+        return responseList;
     }
 }
