@@ -23,9 +23,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import springfox.documentation.annotations.ApiIgnore;
 
 /**
  *
@@ -120,15 +118,11 @@ public class BetControllerImpl implements BetInterface{
     @GetMapping("/bets/getWonBetHistory")
     public List<Bet> getWonBetHistory(String username) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("username").is(username));    
-        List<Bet> bets = mongoTemplate.find(query, Bet.class, "bets");
-        List<Bet> wonBets = new ArrayList();
-        //probably should query with conditions rather than get all and exclude lost bets
-        for (Bet bet : bets) {
-            if (bet.getStatus() == BetStatusEnum.WIN) {
-                wonBets.add(bet);
-            }
-        }
+        query.addCriteria(Criteria.where("username").is(username));
+        query.addCriteria(Criteria.where("status").is(BetStatusEnum.WIN));   
+        
+        List<Bet> wonBets = mongoTemplate.find(query, Bet.class, "bets");
+
         return wonBets;
     }
 
@@ -142,18 +136,32 @@ public class BetControllerImpl implements BetInterface{
     @GetMapping("/bets/getLostBetHistory")     
     public List<Bet> getLostBetHistory(String username) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("username").is(username));    
-        List<Bet> bets = mongoTemplate.find(query, Bet.class, "bets");
-        List<Bet> lostBets = new ArrayList();
-        //probably should query with conditions rather than get all and exclude won or pushed bets
-        for (Bet bet : bets) {
-            if (bet.getStatus() == BetStatusEnum.LOSS) {
-                lostBets.add(bet);
-            }
-        }
+        query.addCriteria(Criteria.where("username").is(username));
+        query.addCriteria(Criteria.where("status").is(BetStatusEnum.LOSS));
+
+        List<Bet> lostBets = mongoTemplate.find(query, Bet.class, "bets");
+
         return lostBets;
     }
+    
+    /**
+     * 
+     * @param username
+     * @return 
+     */
+    @Override
+    @ApiOperation(value = "Retrieve a history of pushed bets placed by the user", notes = "Returns a list of Bet objects")          
+    @GetMapping("/bets/getPushBetHistory")     
+    public List<Bet> getPushBetHistory(String username) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("username").is(username));
+        query.addCriteria(Criteria.where("status").is(BetStatusEnum.PUSH));
 
+        List<Bet> pushBets = mongoTemplate.find(query, Bet.class, "bets");
+
+        return pushBets;
+    }
+  
     /**
      * 
      * @param username
@@ -164,19 +172,18 @@ public class BetControllerImpl implements BetInterface{
     @GetMapping("/bets/getInProgressBets")
     public List<Bet> getInProgressBets(String username) {
         Query query = new Query();
-        query.addCriteria(Criteria.where("username").is(username));            
-        List<Bet> bets = mongoTemplate.find(query, Bet.class, "bets");
-        List<Bet> openBets = new ArrayList();
-        //probably should query with conditions rather than get all and exclude not active bets
-        for (Bet bet : bets) {
-            if (bet.getStatus() == BetStatusEnum.IN_PROGRESS || bet.getStatus() == BetStatusEnum.PLACED) {
-                openBets.add(bet);
-            }
-        }
+        
+        List<Criteria> allCriteria = new ArrayList();
+        allCriteria.add(Criteria.where("status").is(BetStatusEnum.IN_PROGRESS));
+        allCriteria.add(Criteria.where("status").is(BetStatusEnum.PLACED)); 
+        query.addCriteria(new Criteria().orOperator(allCriteria.toArray(new Criteria[allCriteria.size()])));
+        query.addCriteria(Criteria.where("username").is(username));   
+        
+        List<Bet> openBets = mongoTemplate.find(query, Bet.class, "bets");
+
         return openBets;
     }
 
-    
     /**
      * 
      * @param odds
@@ -285,25 +292,4 @@ public class BetControllerImpl implements BetInterface{
             return userList.get(0);
         }
     }
-    
-    
-        /* Do not expose the following endpoints to the end user */
-    @ApiIgnore
-    @GetMapping("/bets/deleteAllBets")
-    public void deleteAllBets() {
-        List<Bet> allBets = listAllBets();
-        for (Bet bet : allBets) {
-            Query query = new Query();
-            query.addCriteria(Criteria.where("username").is(bet.getUsername()));
-            mongoTemplate.findAllAndRemove(query, Bet.class, "bets");
-        }
-    }
-
-    @GetMapping("/bets/listAllBets")
-    @ResponseBody
-    @ApiIgnore
-    public List<Bet> listAllBets() {
-        List<Bet> bets = mongoTemplate.findAll(Bet.class);
-        return bets;
-    }    
 }

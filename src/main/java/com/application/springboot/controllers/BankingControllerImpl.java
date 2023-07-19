@@ -19,7 +19,6 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import springfox.documentation.annotations.ApiIgnore;
 
 /**
  *
@@ -190,7 +189,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
      * @param routingNumber
      * @return 
      */
-    public Boolean checkBankAccountValid(String accountNumber, String routingNumber) {
+    private Boolean checkBankAccountValid(String accountNumber, String routingNumber) {
         Boolean isValid = true;
         if (accountNumber == null || routingNumber == null) {
             isValid = false;
@@ -206,7 +205,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
      * @param CVV
      * @return 
      */
-    public Boolean checkCreditCardValid(String cardNumber, String expiration, String CVV) {
+    private Boolean checkCreditCardValid(String cardNumber, String expiration, String CVV) {
         Boolean isValid = true;
         if (cardNumber == null || expiration == null || CVV == null) {
             isValid = false;
@@ -228,7 +227,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
      * @param cardNumber
      * @return 
      */
-    public Boolean cardNumberValid(String cardNumber) {
+    private Boolean cardNumberValid(String cardNumber) {
         Boolean isValid = false;
         if (cardNumber.length() == 15 && cardNumber.startsWith("3")) {
             isValid = true;
@@ -244,7 +243,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
      * @param expiration
      * @return 
      */
-    public Boolean expirationValid(String expiration) {
+    private Boolean expirationValid(String expiration) {
         Date expirationDate = null;
         String pattern = "MMyy";
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
@@ -258,24 +257,4 @@ public class BankingControllerImpl implements BankingOperationInterface {
         }
         return today.before(expirationDate);
     }
-    
-     /* Do not expose the following endpoints to the end user */
-    @ApiIgnore
-    @GetMapping("/bankroll/deleteAllBankrolls")
-    public void deleteAllBankrolls() {
-        List<Bankroll> allBankrolls = listAllBankrolls();
-        for (Bankroll bankroll : allBankrolls) {
-            Query query = new Query();
-            query.addCriteria(Criteria.where("userName").is(bankroll.getUserName()));
-            mongoTemplate.findAllAndRemove(query, Bankroll.class, "bankrolls");
-        }
-    }
-    
-    @GetMapping("/bankroll/listAllBankrolls")
-    @ResponseBody
-    @ApiIgnore
-    public List<Bankroll> listAllBankrolls() {
-        List<Bankroll> bankrollList = mongoTemplate.findAll(Bankroll.class);
-        return bankrollList;
-    }    
 }

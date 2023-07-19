@@ -17,5 +17,7 @@ public interface BetInterface {
     
     public List<Bet> getLostBetHistory (String username);
     
+    public List<Bet> getPushBetHistory (String username);    
+    
     public List<Bet> getInProgressBets (String username);
 }

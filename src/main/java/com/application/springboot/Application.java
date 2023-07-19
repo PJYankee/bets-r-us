@@ -1,6 +1,5 @@
 package com.application.springboot;
 
-import com.application.springboot.system.BetCrawler;
 import com.application.springboot.system.OddsApiHandler;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -20,6 +19,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 /**
  *
  * @author "paul.perez"
+ * swagger endpoint accessible at http://localhost:8080/swagger-ui.html#/
  */
 @SpringBootApplication
 @EnableSwagger2

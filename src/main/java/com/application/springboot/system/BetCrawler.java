@@ -110,17 +110,14 @@ public class BetCrawler {
     }
 
     private List<Bet> listAllOpenBets() {
-        List<Bet> bets = mongoTemplate.findAll(Bet.class);
-        List<Bet> openBets = new ArrayList();
-        //probably should query with conditions rather than get all and exclude not active bets
-        for (Bet bet : bets) {
-            if (bet.getStatus() == BetStatusEnum.IN_PROGRESS || bet.getStatus() == BetStatusEnum.PLACED) {
-                openBets.add(bet);
-            }
-        }
-        return openBets;
+        Query query = new Query();
+        List<Criteria> allCriteria = new ArrayList();
+        allCriteria.add(Criteria.where("status").is(BetStatusEnum.IN_PROGRESS));
+        allCriteria.add(Criteria.where("status").is(BetStatusEnum.PLACED)); 
+        query.addCriteria(new Criteria().orOperator(allCriteria.toArray(new Criteria[allCriteria.size()])));
+        
+        return mongoTemplate.find(query, Bet.class, "bets");
     }
-
     /**
      * 
      * @param sport
@@ -323,10 +320,10 @@ public class BetCrawler {
     }
     
     private Set<SportsEnum> getOpenSports(List<Bet> allBets){
-    Set<SportsEnum> openSports = new HashSet();
-    for (Bet bet : allBets){
-    openSports.add(bet.getSport());
-    }
+        Set<SportsEnum> openSports = new HashSet();
+        for (Bet bet : allBets){
+         openSports.add(bet.getSport());
+        }
     return openSports;
     }
 
@@ -372,7 +369,7 @@ public class BetCrawler {
      * @param userName
      * @return 
      */
-    public Bankroll getBankroll(String userName) {
+    private Bankroll getBankroll(String userName) {
         List<Bankroll> bankrollList = new ArrayList();
         Bankroll bankroll = new Bankroll();
         Query query = new Query();
