@@ -7,12 +7,15 @@ import com.application.springboot.objects.Bet;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.TimeZone;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -56,9 +59,17 @@ public class BetCrawler {
     @Async
     public void reconcileBets() {
         LOGGER.debug("Running the interval scan of active bets ");
-        List<Bet> allOpenBets = listAllOpenBets();
         List<Object> liveScores = new ArrayList();
-        List<Object> finalScores = getFinalScores(SportsEnum.HOCKEY);
+        List<Bet> allOpenBets = listAllOpenBets();
+        Set<SportsEnum> openSports = getOpenSports(allOpenBets);
+        List<Object> finalScores = new ArrayList();
+        
+        for (SportsEnum sport : openSports){
+        List<Object> tempFinals = getFinalScores(sport);
+            for (Object score : tempFinals){
+            finalScores.add(score);
+            }
+        }
 
         for (Bet bet : allOpenBets) {
             BetStatusEnum status = bet.getStatus();
@@ -75,7 +86,6 @@ public class BetCrawler {
                                 LOGGER.debug("Event " + bet.getEventId() + " has started, changing status from PLACED to IN_PROGRESS");
                                 setNewBetStatus(BetStatusEnum.IN_PROGRESS, bet);
                             }
-
                         }
                     }
                     break;
@@ -310,6 +320,14 @@ public class BetCrawler {
                 LOGGER.error("Unable to calculate payout for bet with odds " + bet.getOdds().toString());
         }
         return newStatus;
+    }
+    
+    private Set<SportsEnum> getOpenSports(List<Bet> allBets){
+    Set<SportsEnum> openSports = new HashSet();
+    for (Bet bet : allBets){
+    openSports.add(bet.getSport());
+    }
+    return openSports;
     }
 
     /**
