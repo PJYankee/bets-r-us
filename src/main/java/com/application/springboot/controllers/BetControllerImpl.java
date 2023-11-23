@@ -191,6 +191,7 @@ public class BetControllerImpl implements BetInterface{
      * @param betType
      * @param selection
      * @return 
+     TODO : separate the payout calculation from the odds calculation to support parlay
      */
     private double calculatePayout(Odds odds, double bet_amount, BetTypeEnum betType, String selection) {
         double payout = bet_amount;
@@ -238,6 +239,17 @@ public class BetControllerImpl implements BetInterface{
     return Math.round(payout *100.0) / 100.0;
     }
     
+    /*
+     * @param odds
+     * @param betType
+     * @param selection
+    TODO : Calculate Odds for individual bets to add to parlay bets
+    */
+    public double getSingleGameOdds(Odds odds, BetTypeEnum betType, String selection){
+    double singleLegOdds = 1.0;
+    //TODO add logic, default to 1.0 to not change odds if no parlay
+    return singleLegOdds;
+    }
     /**
      * 
      * @param userName
