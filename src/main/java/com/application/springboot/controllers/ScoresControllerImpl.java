@@ -21,7 +21,7 @@ import java.util.TimeZone;
 import com.application.springboot.interfaces.ScoresInterface;
 import com.application.springboot.mockdata.MockFinalScoresJson;
 import com.application.springboot.mockdata.MockInProgressScoresResponseJson;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
 /**
  *
  * @author "paul.perez"
@@ -45,7 +45,7 @@ public class ScoresControllerImpl implements ScoresInterface{
      */
     @Override
     @GetMapping("/scores/getLiveScores")
-    @ApiOperation(value = "Shows a list of scores for all active games by sport", notes = "Returns a list of score objects")    
+    @Operation(summary = "Shows a list of scores for all active games by sport", description = "Returns a list of score objects")    
     @ResponseBody
     public List<Object> getLiveScores(SportsEnum sport) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
@@ -95,7 +95,7 @@ public class ScoresControllerImpl implements ScoresInterface{
     @Override
     @GetMapping("/scores/getFinalScores")
     @ResponseBody
-    @ApiOperation(value = "Shows a list of scores for all completed games by sport", notes = "Returns a list of game objects")    
+    @Operation(summary = "Shows a list of scores for all completed games by sport", description = "Returns a list of game objects")    
     public List<Object> getFinalScores(SportsEnum sport) {
        List<Object> responseList= new ArrayList();
        List<Object> finalScores= new ArrayList();  

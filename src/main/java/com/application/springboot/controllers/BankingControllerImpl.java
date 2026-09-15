@@ -2,7 +2,7 @@ package com.application.springboot.controllers;
 
 import com.application.springboot.interfaces.BankingOperationInterface;
 import com.application.springboot.objects.Bankroll;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -48,7 +48,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
     @Override
     @GetMapping("/bankroll/addFundsCreditCard")
     @ResponseBody
-    @ApiOperation(value = "Allows the user to add funds to their bankroll with a valid credit card", notes = "Returns the updated Bankroll object")    
+    @Operation(summary = "Allows the user to add funds to their bankroll with a valid credit card", description = "Returns the updated Bankroll object")    
     public Bankroll addFundsCreditCard(String userName, String cardNumber, String expiration, String cvv, double amount) {
         Bankroll bankroll = getBankroll(userName);
         if (checkCreditCardValid(cardNumber, expiration, cvv)) {
@@ -82,7 +82,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
     @Override
     @GetMapping("/bankroll/addFundsBankAccount")
     @ResponseBody
-    @ApiOperation(value = "Allows the user to add funds to their bankroll with a valid bank account", notes = "Returns the updated Bankroll object")      
+    @Operation(summary = "Allows the user to add funds to their bankroll with a valid bank account", description = "Returns the updated Bankroll object")      
     public Bankroll addFundsBankAccout(String userName, String accountNumber, String routingNumber, double amount) {
         Bankroll bankroll = getBankroll(userName);
         if (checkBankAccountValid(accountNumber, routingNumber)) {
@@ -117,7 +117,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
     @Override
     @GetMapping("/bankroll/withdrawFundsBankAccount")
     @ResponseBody
-    @ApiOperation(value = "Allows the user to withdraw funds from their bankroll to an external bank account", notes = "Returns the updated Bankroll object")      
+    @Operation(summary = "Allows the user to withdraw funds from their bankroll to an external bank account", description = "Returns the updated Bankroll object")      
     public Bankroll withdrawFundsBankAccount(String userName, String accountNumber, String routingNumber, double amount) {
         Bankroll bankroll = getBankroll(userName);
         if (checkBankAccountValid(accountNumber, routingNumber)) {
@@ -153,7 +153,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
     @Override
     @GetMapping("/bankroll/withdrawFundsCheck")
     @ResponseBody
-    @ApiOperation(value = "Allows the user to withdraw funds from their bankroll via check by mail", notes = "Returns the updated Bankroll object")      
+    @Operation(summary = "Allows the user to withdraw funds from their bankroll via check by mail", description = "Returns the updated Bankroll object")      
     public Bankroll withdrawFundsCheck(String userName, double amount) {
         Bankroll bankroll = getBankroll(userName);
         
@@ -168,7 +168,7 @@ public class BankingControllerImpl implements BankingOperationInterface {
     @Override
     @GetMapping("/bankroll/getBankroll")
     @ResponseBody
-    @ApiOperation(value = "Allows the user to view the balance of their bankroll", notes = "Returns the Bankroll object")  
+    @Operation(summary = "Allows the user to view the balance of their bankroll", description = "Returns the Bankroll object")  
     public Bankroll getBankroll(String userName) {
         List<Bankroll> bankrollList = new ArrayList();
         Bankroll bankroll = new Bankroll();

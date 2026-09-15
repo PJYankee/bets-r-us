@@ -9,7 +9,7 @@ import com.application.springboot.system.BetStatusEnum;
 import com.application.springboot.system.BetTypeEnum;
 import com.application.springboot.system.OddsApiHandler;
 import com.application.springboot.system.SportsEnum;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -56,7 +56,7 @@ public class BetControllerImpl implements BetInterface{
      * @return Bet
      */
     @Override
-    @ApiOperation(value = "Place a bet on a game", notes = "Returns a Bet object")
+    @Operation(summary = "Place a bet on a game", description = "Returns a Bet object")
     @GetMapping("/bets/placeBet")
     public Bet placeBet(String username, String eventId, String selection, double bet_amount, BetTypeEnum bet_type, SportsEnum sport) {
         Date now = new Date();
@@ -98,7 +98,7 @@ public class BetControllerImpl implements BetInterface{
      * @return
      */
     @Override
-    @ApiOperation(value = "Retrieve a history of all bets placed by the user", notes = "Returns a list of Bet objects")          
+    @Operation(summary = "Retrieve a history of all bets placed by the user", description = "Returns a list of Bet objects")          
     @GetMapping("/bets/getAllBetHistory")    
     public List<Bet> getAllBetHistory(String username) {
         Query query = new Query();
@@ -114,7 +114,7 @@ public class BetControllerImpl implements BetInterface{
      * @return
      */
     @Override
-    @ApiOperation(value = "Retrieve a history of winning bets placed by the user", notes = "Returns a list of Bet objects")
+    @Operation(summary = "Retrieve a history of winning bets placed by the user", description = "Returns a list of Bet objects")
     @GetMapping("/bets/getWonBetHistory")
     public List<Bet> getWonBetHistory(String username) {
         Query query = new Query();
@@ -132,7 +132,7 @@ public class BetControllerImpl implements BetInterface{
      * @return 
      */
     @Override
-    @ApiOperation(value = "Retrieve a history of lost bets placed by the user", notes = "Returns a list of Bet objects")          
+    @Operation(summary = "Retrieve a history of lost bets placed by the user", description = "Returns a list of Bet objects")          
     @GetMapping("/bets/getLostBetHistory")     
     public List<Bet> getLostBetHistory(String username) {
         Query query = new Query();
@@ -150,7 +150,7 @@ public class BetControllerImpl implements BetInterface{
      * @return 
      */
     @Override
-    @ApiOperation(value = "Retrieve a history of pushed bets placed by the user", notes = "Returns a list of Bet objects")          
+    @Operation(summary = "Retrieve a history of pushed bets placed by the user", description = "Returns a list of Bet objects")          
     @GetMapping("/bets/getPushBetHistory")     
     public List<Bet> getPushBetHistory(String username) {
         Query query = new Query();
@@ -168,7 +168,7 @@ public class BetControllerImpl implements BetInterface{
      * @return 
      */
     @Override
-    @ApiOperation(value = "Retrieve a List of in progress bets by user", notes = "Returns a list of Bet objects")
+    @Operation(summary = "Retrieve a List of in progress bets by user", description = "Returns a list of Bet objects")
     @GetMapping("/bets/getInProgressBets")
     public List<Bet> getInProgressBets(String username) {
         Query query = new Query();

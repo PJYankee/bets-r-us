@@ -12,7 +12,7 @@
     <artifactId>spring-boot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-boot</name>
-    <description>Bets-R-Us project Syracuse University</description>
+    <description>Bets-R-Us project</description>
     <properties>
         <java.version>25</java.version>
         <maven.compiler.release>25</maven.compiler.release>
