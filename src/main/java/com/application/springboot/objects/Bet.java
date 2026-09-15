@@ -3,7 +3,6 @@ package com.application.springboot.objects;
 import com.application.springboot.system.BetStatusEnum;
 import com.application.springboot.system.BetTypeEnum;
 import com.application.springboot.system.SportsEnum;
-import io.swagger.annotations.ApiModelProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,25 +13,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "bets")
 public class Bet {
     @Id
-    @ApiModelProperty(required = true)
     private String date;   
-    @ApiModelProperty(required = true)
     private String username;
-    @ApiModelProperty(required = true)
     private String selection;
-    @ApiModelProperty(required = true)
     private String eventId;
-    @ApiModelProperty(required = true)  
     private double bet_amount;
-    @ApiModelProperty(required = true)  
     private double payout;    
-    @ApiModelProperty(required = true)    
     private BetStatusEnum status;
-    @ApiModelProperty(required = true)    
     private BetTypeEnum bet_type;
-    @ApiModelProperty(required = true)    
     private SportsEnum sport;
-    @ApiModelProperty(required = true)    
     private Odds odds;
 
     public String getUsername() {

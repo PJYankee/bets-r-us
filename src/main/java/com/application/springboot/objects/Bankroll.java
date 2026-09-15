@@ -1,6 +1,5 @@
 package com.application.springboot.objects;
 
-import io.swagger.annotations.ApiModelProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,7 +13,6 @@ public class Bankroll {
     @Id
     private String userName;
     @Indexed(unique = true)
-    @ApiModelProperty(required = true)
     private double balance;
 
     public String getUserName() {

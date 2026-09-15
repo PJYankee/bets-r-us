@@ -1,6 +1,5 @@
 package com.application.springboot.objects;
 
-import io.swagger.annotations.ApiModelProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 /**
@@ -12,21 +11,13 @@ public class User {
     @Id
     private String uniqueUserId;
     private String userName;
-    @ApiModelProperty(required = true)
     private String firstName;
-    @ApiModelProperty(required = true)
     private String lastName;
-    @ApiModelProperty(required = true)
     private String email;
-    @ApiModelProperty(required = true)
     private String Street_Address;
-    @ApiModelProperty(required = true)
     private String city;
-    @ApiModelProperty(required = true)
     private String state;
-    @ApiModelProperty(required = true)
     private String zip_code;
-    @ApiModelProperty(required = true)
 
     @Override
     public String toString() {
