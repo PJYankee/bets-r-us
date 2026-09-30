@@ -6,6 +6,7 @@ import com.application.springboot.objects.User;
 import io.swagger.v3.oas.annotations.Operation;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Pattern;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,13 @@ public class UserControllerImpl implements UserOperationInterface {
     @Operation(summary = "Adds a user account to the system", description = "Returns the user object")
     public void addUser(@RequestParam String userName, String firstName, String lastName, String email,
         String streetAddress, String city, String state, String zip) throws Exception {
+        if (existsCaseInsensitive("userName", userName)) {
+            throw new Exception("userName " + userName + " is already in use");
+        }
+        if (existsCaseInsensitive("email", email)) {
+            throw new Exception("email " + email + " is already in use");
+        }
+
         User newUser = new User();
         newUser.setUserName(userName);
         newUser.setUniqueUserId(createUserId(userName));
@@ -92,8 +100,10 @@ public class UserControllerImpl implements UserOperationInterface {
     @ResponseBody
     @Operation(summary = "Retrieve a user object from the database with a valid username", description = "Returns the user object")
     public User getUser(@RequestParam String userName) {
-        Query query = new Query();
-        query.addCriteria(Criteria.where("userName").is(userName));
+        if (!existsCaseInsensitive("userName", userName)) {
+            throw new IndexOutOfBoundsException("No user found for userName " + userName);
+        }
+        Query query = caseInsensitiveQuery("userName", userName);
         List<User> userList = mongoTemplate.find(query, User.class, "users");
             return userList.get(0);
     }
@@ -106,8 +116,10 @@ public class UserControllerImpl implements UserOperationInterface {
     @PostMapping("/user/deleteUser")
     @Operation(summary = "Delete a user account from the system", description = "Returns 200 on success")    
     public void deleteUser(@RequestParam String userName) {
-        Query query = new Query();
-        query.addCriteria(Criteria.where("userName").is(userName));
+        if (!existsCaseInsensitive("userName", userName)) {
+            return;
+        }
+        Query query = caseInsensitiveQuery("userName", userName);
         //first query to remove user from users document second query to remove bankroll from bankrolls document
         mongoTemplate.findAllAndRemove(query, User.class, "users");
         mongoTemplate.findAllAndRemove(query, Bankroll.class, "bankrolls");
@@ -127,8 +139,11 @@ public class UserControllerImpl implements UserOperationInterface {
     @ResponseBody
     @Operation(summary = "Allows a user to change their mailing address", description = "Returns the updated user object")    
     public User editUserAddress(String userName, String streetAddress, String city, String state, String zip) {
-        Query query = new Query();
-        query.addCriteria(Criteria.where("userName").is(userName));
+        if (!existsCaseInsensitive("userName", userName)) {
+            LOGGER.error("Cannot edit user's address, the username provided (" + userName + ") does not exist in the system ");
+            return null;
+        }
+        Query query = caseInsensitiveQuery("userName", userName);
         Update update = new Update();
         update.set("Street_Address", streetAddress);
         update.set("city", city);
@@ -155,8 +170,11 @@ public class UserControllerImpl implements UserOperationInterface {
     @ResponseBody
     @Operation(summary = "Allows the user to change their first or last name", description = "Returns the user object")    
     public User editUserProperName(String userName, String firstName, String lastName) {
-        Query query = new Query();
-        query.addCriteria(Criteria.where("userName").is(userName));
+        if (!existsCaseInsensitive("userName", userName)) {
+            LOGGER.error("Cannot edit the user's name, the username provided (" + userName + ") does not exist in the system");
+            return null;
+        }
+        Query query = caseInsensitiveQuery("userName", userName);
         Update update = new Update();
         update.set("firstName", firstName);
         update.set("lastName", lastName);
@@ -180,8 +198,11 @@ public class UserControllerImpl implements UserOperationInterface {
     @ResponseBody
     @Operation(summary = "Allows the user to change their email address", description = "Returns the user object")    
     public User editUserEmail(String userName, String email) {
-        Query query = new Query();
-        query.addCriteria(Criteria.where("userName").is(userName));
+        if (!existsCaseInsensitive("userName", userName)) {
+            LOGGER.error("Cannot edit the user's email, the username provided (" + userName + ") does not exist in the system");
+            return null;
+        }
+        Query query = caseInsensitiveQuery("userName", userName);
         Update update = new Update();
         update.set("email", email);
         User updatedUser = mongoTemplate.findAndModify(query, update, User.class);
@@ -216,5 +237,15 @@ public class UserControllerImpl implements UserOperationInterface {
 
     public String createUserId(String userName) {
         return userName + ":" + UUID.randomUUID().toString();
+    }
+
+    private boolean existsCaseInsensitive(String fieldName, String value) {
+        return mongoTemplate.exists(caseInsensitiveQuery(fieldName, value), User.class, "users");
+    }
+
+    private Query caseInsensitiveQuery(String fieldName, String value) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where(fieldName).regex("^" + Pattern.quote(value) + "$", "i"));
+        return query;
     }
 }
